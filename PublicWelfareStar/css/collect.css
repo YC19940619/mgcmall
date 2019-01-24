@@ -1,0 +1,221 @@
+section{
+	position: relative;
+	background: #fff;
+	overflow-y: scroll;
+}
+.single{
+	display: none;
+	width: 1.6rem;
+	height: 0.52rem;
+	background:rgba(255,255,255,0.8);
+	text-align: center;
+	line-height: 0.52rem;
+	color:#D2A597;
+	font-size: 0.26rem;
+	border-radius: 1rem;
+	position: absolute;
+	right:0.3rem;
+	top:0.3rem;
+}
+section .wrap{
+	/*display: flex;*/
+	/*display: -webkit-flex;*/
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	padding: 0.32rem 0.2rem 0;
+}
+section ul{
+	width:100%;
+	flex:1;
+	-webkit-flex: 1;
+	overflow: scroll;
+}
+section ul li{
+	width:100%;
+	background: #fff;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	display: flex;
+	display: -webkit-flex;
+	flex-direction: row;
+	-webkit-flex-direction: row;
+	overflow: hidden;
+	position: relative;
+	margin-bottom: 0.2rem;
+	border: 0.1rem solid #f5f5f5;
+}
+section ul li .detail{
+	display: none;
+}
+section ul li .proImg{
+	float: left;
+	width:2.15rem;
+	height:2.15rem;
+	overflow: hidden;
+}
+section ul li .proImg img{
+	display: inline-block;
+	width:2rem;
+	padding: 0.05rem;
+}
+section ul li .rightPro{
+	-webkit-flex: 1;
+	flex: 1;
+	height: 100%;
+}
+.rightPro .nowPrice{
+	width: 100%;
+	height: 1.28rem;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	padding-top: 0.3rem;
+	font-size:0.26rem;
+}
+.rightPro .nowPrice span{
+	display: block;
+	width:100%;
+	line-height:0.5rem;
+}
+.rightPro .priGoto{
+	width: 100%;
+	overflow: hidden;
+}
+.rightPro .priGoto i{
+	font-style: normal;
+	float: left;
+	width: 1.6rem;
+}
+section ul li .mgobuy{
+	color: #fff;
+	width:1.5rem;
+	height: 0.5rem;
+	text-align: center;
+	line-height: 0.5rem;
+	background: #C88D6D;
+	font-size:0.2rem;
+	float:left;
+	margin-left:2%;
+	margin-right:0.12rem;
+}
+.delete{
+	display: block;
+	width: 1.15rem;
+	height:0.5rem;
+	text-align: center;
+	line-height: 0.5rem;
+	background: #f5f5f5;
+	font-size:0.2rem;
+	float: left;
+	color:#000;
+}
+.remove{
+	transition: 0.5s cubic-bezier(.77,0,.175,1);
+	-webkit-transform: 0.5s cubic-bezier(.77,0,.175,1);
+	opacity: 0;
+}
+
+.swiper-container1{
+	margin-top:0.6rem;
+}
+.swiper-container1 .swiper-pagination{
+	bottom: 1rem;
+}
+.swiper-container1 .swiper-pagination-bullet-active{
+	background: #fff;
+}
+
+.swiper-container2{
+	width:6.46rem;
+	height:10.8rem;
+	margin: 0.38rem auto 0;
+}
+.morePage{
+	width:6.46rem;
+	height:9.5rem;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	background: #FFFFFF;
+	border: 1px solid #FFFFFF;
+	box-shadow: 0 2px 4px 0 rgba(111,111,111,0.50);
+	border-radius: 10px;
+}
+.morePage .swiper-slide{
+	width: 100%;
+	height: 100%;
+}
+.swiper-slide .mdelete{
+	font-size: 0.3rem;
+	float: right;
+	color: #BCC0C4;
+	margin:0.1rem 0.3rem 0.2rem;
+}
+.swiper-slide .pro{
+	width: 5.66rem;
+	height: 6.84rem;
+	margin:0.6rem auto 0;
+	border:0.01rem solid #ccc;
+	border-radius: 0.1rem;
+	text-align: center;
+}
+.swiper-slide .pro img{
+	display:inline-block;
+	width: 100%;
+}
+.mnowPrice{
+	width: 5.66rem;
+	font-family: PingFangSC-Regular;
+	font-size:0.28rem;
+	color: #8D7064;
+	text-align: right;
+	margin: 0.2rem auto 0.4rem;
+}
+.mnowPrice i{
+	font-size: 0.28rem;
+}
+.mnowPrice span{
+	font-size:0.4rem;
+	margin-left: 0.2rem;
+}
+.coprate{
+	width: 5.66rem;
+	text-align: right;
+	margin: 0 auto;
+}
+.coprate .continue{
+	font-family: PingFangSC-Regular;
+	font-size:0.28rem;
+	color: #A7A7A7;
+}
+.coprate .mgowuche{
+	border: 0.01rem solid #D2A597;
+	border-radius:0.1rem;
+	display: inline-block;
+	width:1.8rem;
+	height:0.6rem;
+	margin-left: 0.1rem;
+	text-align: center;
+	line-height: 0.6rem;
+	font-family: PingFangSC-Regular;
+	font-size:0.28rem;
+	color: #D2A597;
+}
+.coprate .mgobuy{
+	display: inline-block;
+	background: #D2A597;
+	border-radius:0.1rem;
+	width:1.56rem;
+	height:0.6rem;
+	margin-left: 0.1rem;
+	text-align: center;
+	line-height: 0.6rem;
+	color: #fff;
+	font-size: 0.28rem;
+}
+.swiper-container2 .swiper-pagination{
+	font-size: 0.36rem;
+	bottom: 0.9rem;
+	color: #fff;
+}
+section .wrap .swiper-pagination span{
+	font-size: 0.36rem;
+}

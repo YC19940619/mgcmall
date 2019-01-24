@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta content="telephone=no" name="format-detection"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>银行卡详情</title>
+    <link rel="stylesheet" href="../common/common.css" />
+    <script type="text/javascript" src="../cordova.js"></script>
+    <script src="../common/jquery-2.2.1.min.js"></script>
+    <script type="text/javascript" src="../common/fastclick.js"></script>
+    <script src="../common/common.js"></script>
+    <script type="text/javascript" src="../common/rem.js"></script>
+    <style>
+        .delete{
+            width: 100%;
+            height: 0.8rem;
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            padding: 0 0.25rem;
+            position: fixed;
+            bottom: 0.3rem;
+            left: 0;
+        }
+        .delete p{
+            width: 100%;
+            height: 0.8rem;
+            text-align: center;
+            line-height: 0.8rem;
+            border: 1px solid #c88d6d;
+            border-radius: 5px;
+            font-size: 0.32rem;
+            color: #c88d6d;
+            letter-spacing: 0;
+            background: #fff;
+        }
+        ul{
+            width:100%;
+            height:auto;
+            background: #fff;
+            padding-left:0.3rem;
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+        }
+        ul div{
+            height:0.8rem;
+            border-bottom: 1px solid rgba(0,0,0,0.10);
+            line-height: 0.8rem;
+        }
+        ul div:last-child{
+            border:none;
+        }
+        ul div span{
+            float: left;
+            font-size: 0.3rem;
+            color: #333333;
+            letter-spacing: -0.36px;
+        }
+        ul div p{
+            float:right;
+            color: #999;
+            letter-spacing: 0;
+            padding-right:0.3rem;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <span class="left goback"><img src="../img/common/goback.png"></span>
+    <p>银行卡详情</p>
+</header>
+<section>
+   <ul>
+       <div class="name"><span>姓名</span><p></p></div>
+       <div class="code"><span>卡号</span><p></p></div>
+       <div class="bank"><span>开户银行</span><p></p></div>
+   </ul>
+    <div class="delete"><p>解除绑定该银行卡</p></div>
+</section>
+<script>
+    $(function(){
+        FastClick.attach(document.body);
+        var uid = localStorage.getItem("uid");
+        var sessionid = localStorage.getItem("sessionid");
+        var bank_name = Request.QueryString("bank_name");
+        var bank_card_id = Request.QueryString("bank_card_id");
+        var username = Request.QueryString("username");
+        // 返回上一级
+        $('header .goback').click(function(){
+            history.go(-1);
+        })
+        $(".name p").text(decodeURI(username));
+        console.log(bank_card_id);
+        $(".code p").text(bank_card_id.replace(/(.{5}).*(.{5})/,"$1******$2"));
+        $(".bank p").text(decodeURI(bank_name));
+        $(".delete").click(function(){
+            var senddata = {
+                uid: uid,
+                sessionid: sessionid,
+                bank_card_id:bank_card_id
+            }
+            //删除银行卡
+            $.ajax({
+                type: 'DELETE',
+                url: bank_card,
+                crossDomain: true,
+                data:JSON.stringify(senddata),
+                success: function(data){
+                    console.log(data)
+                    if(data.status == 0){
+                        if(localStorage.getItem("lobank_card_id")==bank_card_id){
+                            localStorage.removeItem("lousername");
+                            localStorage.removeItem("lobank_card_id");
+                            localStorage.removeItem("lobank_name");
+                        }
+                        window.location.href="mybank.html";
+                    }
+                },
+                error:function(data){
+                    new Toast({context: $('body'), message: "网络加载失败"}).show();
+                }
+            });
+        })
+    })
+
+</script>
+</body>
+</html>

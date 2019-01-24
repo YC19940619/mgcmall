@@ -1,0 +1,138 @@
+section{
+    background: #fff;
+    overflow-y: scroll;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    padding:0 0.3rem;
+    user-select:auto;
+    -webkit-user-select: auto;
+}
+section .yaoqing{
+    display: block;
+    width:2.23rem;
+    margin:0.82rem auto 0.6rem;
+}
+section .copyp{
+    width:100%;
+    height:0.5rem;
+    line-height:0.5rem;
+    text-align: center;
+    font-size: 0.24rem;
+    color: #999999;
+    letter-spacing: -0.29px;
+}
+section .codep{
+    width:100%;
+    height:1.2rem;
+    line-height:1.2rem;
+    background: #eee;
+    text-align: center;
+    font-size: 0.32rem;
+    color: #C88D6D;
+    letter-spacing: 0.53px;
+    margin-bottom:0.55rem;
+    -webkit-touch-callout:inherit;
+    -webkit-user-select:text !important;
+    user-select: text;
+    -khtml-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+}
+section .sharep{
+    width: 100%;
+    height:0.7rem;
+    line-height:0.7rem;
+    text-align: center;
+    background: #C88D6D;
+    font-size: 0.32rem;
+    color: #fff;
+    letter-spacing: 0.53px;
+    margin-bottom:1rem;
+}
+section .rule{
+    width:100%;
+    height:auto;
+}
+.rule .ruleWrap{
+	width:100%;
+    margin-top:0.72rem;
+    height:0.45rem;
+    position: relative;
+    margin-bottom:0.32rem;
+}
+.rule .ruleWrap:before{
+	position: absolute;
+	content:"";
+	width:0.06rem;
+	height:100%;
+	border-left:0.06rem solid #C88D6D;
+}
+section .rule h2{
+	line-height:0.45rem;
+    font-size: 0.3rem;
+    color: #333333;
+    letter-spacing: 0;
+    margin-left:0.2rem;
+}
+
+section .rule p{
+    font-size: 0.28rem;
+    line-height:0.45rem;
+    color: #666666;
+    letter-spacing: 0;
+}
+.binding{
+    display: none;
+    width:6rem;
+    height:4rem;
+    position: fixed;
+    left:50%;
+    top:50%;
+    margin-top:-2rem;
+    margin-left:-3rem;
+    background: #fff;
+    border: #9E9E9E 1px solid;
+    border-radius: 5px;
+    box-shadow: 0 1px 13px 0 rgba(111,111,111,0.20);
+}
+.binding .remove{
+    width:0.4rem;
+    height:0.4rem;
+    float: right;
+    text-align: center;
+    line-height:0.4rem;
+    color: #999;
+}
+.binding .code{
+    width:5rem;
+    height:0.6rem;
+    line-height:0.6rem;
+    border:1px solid #9E9E9E;
+    border-radius: 3px;
+    margin:0.5rem 0.5rem 0.1rem;
+    text-indent: 0.24rem ;
+}
+.binding .Notice{
+    width:100%;
+    height:0.4rem;
+    line-height: 0.4rem;
+    color: #c88d6d;
+    text-indent: 0.24rem;
+    margin:0 auto;
+    text-align: center;
+    transform: scale(0.8);
+    -webkit-transform: scale(0.8);
+}
+.binding .btn{
+    display: block;
+    width:5rem;
+    margin:0 auto;
+    height:0.6rem;
+    line-height:0.6rem;
+    background:#c88d6d;
+    text-align: center;
+    font-size: 0.28rem;
+    color: #fff;
+    border-radius:3px;
+    margin-top:0.4rem;
+}

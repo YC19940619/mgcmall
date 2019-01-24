@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <!-- uc强制竖屏 -->
+    <meta name="screen-orientation" content="portrait">
+    <!-- QQ强制竖屏 -->
+    <meta name="x5-orientation" content="portrait">
+    <meta content="telephone=no" name="format-detection" />
+    <title>文章详情</title>
+    <link rel="stylesheet" href="../common/common.css" />
+    <script type="text/javascript" src="../cordova.js"></script>
+    <script type="text/javascript" src="../common/jquery-2.2.1.min.js"></script>
+    <script type="text/javascript" src="../common/fastclick.js"></script>
+    <script type="text/javascript" src="../common/common.js"></script>
+    <script type="text/javascript" src="../common/rem.js"></script>
+    <script type="text/javascript" src="../common/md5.js"></script>
+    <style>
+        section{
+            overflow-x: hidden;
+            overflow-y: scroll;
+            background: #fff;
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            padding:0.2rem 0.3rem;
+
+        }
+        section img{
+            width: 100%;
+        }
+        section p{
+            font-size: 0.28rem;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <span class="left goback"><img src="../img/common/goback.png"></span>
+    <p>文章详情</p>
+</header>
+<section>
+
+</section>
+</body>
+<script>
+    FastClick.attach(document.body);
+    //返回按键
+    $(".goback").click(function () {
+        parent.document.getElementById("articledetail").classList.remove("active");
+    })
+    var uid = localStorage.getItem("uid");
+    var sessionid = localStorage.getItem("sessionid");
+    var senddata = {
+        uid: uid,
+        sessionid: sessionid
+    }
+    $.ajax({
+        type: 'POST',
+        url: faxian1+"/"+Request.QueryString("aid"),
+        data:sortByKeys(senddata),
+        success: function(data){
+            console.log(data)
+            $("section").html(data.data[0].content);
+            for(var i =0;i<$("section img").length;i++){
+                $("section img").eq(i).attr("src",dataimgsrc($("section img").eq(i).attr("src")))
+            }
+            $("section img").one('load', function() {
+                $(this).css({"width":"100%","height":"auto"});
+                var swidth = $("section").width();
+                //alert(1)
+                if($(this).width()>=swidth){
+                    $(this).css({"width":"100%","height":"auto"});
+                }else{
+                    $(this).css({"margin":"0 auto","display":"block"});
+                }
+            }).each(function() {
+                if(this.complete) $(this).load();
+            });
+        },
+        error: function(){
+            new Toast({context: $('body'), message: "网络加载失败"}).show();
+        }
+    });
+
+</script>
+</html>

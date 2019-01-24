@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta content="telephone=no" name="format-detection"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>我的银行卡</title>
+    <link rel="stylesheet" href="../common/common.css" />
+    <script type="text/javascript" src="../cordova.js"></script>
+    <script src="../common/jquery-2.2.1.min.js"></script>
+    <script type="text/javascript" src="../common/fastclick.js"></script>
+    <script src="../common/common.js"></script>
+    <script type="text/javascript" src="../common/rem.js"></script>
+    <style>
+        section{
+            overflow-y:scroll;
+            overflow-x:hidden;
+        }
+        ul{
+            width:100%;
+            height:auto;
+            background: #fff;
+        }
+        ul .bank{
+            width:100%;
+            height:1rem;
+            border-bottom: 1px solid rgba(0,0,0,0.10);
+            display: flex;
+            display: -webkit-flex;
+            flex-direction: row;
+            -webkit-flex-direction: row;
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            padding:0 0.3rem;
+        }
+        ul .bank p{
+            flex:1;
+            -webkit-flex: 1;
+            height:1rem;
+            line-height: 1rem;
+            font-size: 0.3rem;
+            color: #4A4A4A;
+            letter-spacing: 0.53px;
+            font-weight: bold;
+        }
+        ul .bank span{
+            height:1rem;
+            line-height: 1rem;
+            color: #CCCCCC;
+            font-size: 0.26rem;
+        }
+        .add{
+            width: 100%;
+            height: 0.8rem;
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            padding: 0 0.25rem;
+            position: fixed;
+            bottom: 0.3rem;
+            left: 0;
+        }
+        .add p{
+            width: 100%;
+            height: 0.8rem;
+            text-align: center;
+            line-height: 0.8rem;
+            border: 1px solid #c88d6d;
+            border-radius: 5px;
+            font-size: 0.32rem;
+            color: #c88d6d;
+            letter-spacing: 0;
+            background: #fff;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <span class="left goback"><img src="../img/common/goback.png"></span>
+    <p>我的银行卡</p>
+</header>
+<section>
+    <ul>
+
+    </ul>
+    <div class="add"><p>绑定新银行卡</p></div>
+</section>
+<script>
+    $(function(){
+        FastClick.attach(document.body);
+        // 返回上一级
+        document.addEventListener("deviceready", onDeviceReady, false);
+        function onDeviceReady() {
+            document.addEventListener("backbutton",function(){
+                window.location.href="tixian.html";
+            }, false);
+        }
+        $('header .goback').click(function(){
+            window.location.href="tixian.html";
+        })
+        var uid = localStorage.getItem("uid");
+        var sessionid = localStorage.getItem("sessionid");
+        var senddata = {
+            uid: uid,
+            sessionid: sessionid
+        }
+        //查询银行卡
+        $.ajax({
+            type: 'GET',
+            url: bank_card,
+            data:senddata,
+            success: function(data){
+                console.log(data)
+                if(data.status==0){
+                    var str ='';
+                    for(var i=0;i<data.bankcard_info.length;i++){
+                        var bank_name = data.bankcard_info[i].bank_name;
+                        var bank_card_id = data.bankcard_info[i].bank_card_id;
+                        var username = data.bankcard_info[i].username;
+                        str +='<div class="bank" bank_name="'+bank_name+'" bank_card_id="'
+                            +bank_card_id+'" username="'+username+'"><p>'
+                            +bank_name+'('+bank_card_id.substr(bank_card_id.length-4)+
+                            ')</p><span class="iconfont">&#xe62e;</span></div>'
+                    }
+                    $("section ul").html(str);
+                }else if(data.status == 20122){//未绑定
+                    $("section").css("background","#fff");
+                    str = '<p class="dingIcon"><img src="../img/common/kongbank.png"></p><p class="dingTit">暂未绑定银行卡~</p>'
+                    $("section ul").html(str);
+                }
+            },
+            error:function(data){
+                new Toast({context: $('body'), message: "网络加载失败"}).show();
+            }
+        });
+        $("ul").delegate(".bank","click",function(){
+           var lousername =$(this).attr("username");
+           var lobank_card_id=$(this).attr("bank_card_id");
+           var lobank_name=$(this).attr("bank_name");
+           localStorage.setItem("lousername",lousername);
+           localStorage.setItem("lobank_card_id",lobank_card_id);
+           localStorage.setItem("lobank_name",lobank_name);
+           window.location.href="tixian.html";
+        })
+        $(".add p").click(function(){
+            window.location.href="newbank.html?door=change";
+        })
+    })
+
+</script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>提现</title>
+    <link rel="stylesheet" href="../css/tixian.css" />
+    <link rel="stylesheet" href="../common/common.css" />
+    <script type="text/javascript" src="../cordova.js"></script>
+    <script src="../common/jquery-2.2.1.min.js"></script>
+    <script src="../common/common.js"></script>
+    <script type="text/javascript" src="../common/rem.js"></script>
+    <style>
+
+    </style>
+</head>
+
+<body>
+<header>
+    <span class="left goback"><img src="../img/common/goback.png"></span>
+    <p>提现</p>
+</header>
+<section>
+    <div class="masksetup mask">
+        <div class="setuppassword">
+            <div class="top">您还没设置提现密码</br>请先设置密码</div>
+            <div class="bottom"><span class="left">取消</span><span class="right">去设置</span>
+            </div>
+        </div>
+    </div>
+    <div class="maskentry mask">
+        <div class="entrypassword">
+            <p class="title">输入密码<span class="empty"><img src="../img/common/empty.png"></span></p>
+            <p class="red"></p>
+            <div class="inputs">
+                <input type="tel" maxlength="6" class="none" />
+                <div class="input-box">
+                    <input type="password">
+                    <input type="password">
+                    <input type="password">
+                    <input type="password">
+                    <input type="password">
+                    <input type="password" class="last">
+                    <img class="fcous" src="../img/common/jump.gif">
+                </div>
+            </div>
+            <p class="forget"><span >忘记密码</span></p>
+        </div>
+    </div>
+    <p class="term">到账账户（15个工作日内到账）</p>
+    <div class="bankbox">请选择到账账户</div>
+    <p class="moneytitle">提现金额</p>
+    <div class="tixian">
+        <p class="redNotice">* 请输入提现金额</p>
+        <div class="money">
+            <span>￥</span>
+            <input type="number" placeholder="输入提现金额" value="">
+        </div>
+        <p class="Notice">为了提高交易效率，提现金额必须为整数并且手续费从余额扣除</p>
+    </div>
+    <div class="btn">确认提现</div>
+</section>
+<script type="text/javascript" src="../js/tixian.js"></script>
+</body>
+</html>

@@ -1,0 +1,117 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+html,body{
+	width: 100%;
+	height: 100%;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: column;
+    -webkit-flex-direction: column;
+    /*cursor: pointer;*/
+}
+input,textarea{
+	border: 0;
+	outline: 0;
+	-webkit-appearance:none;
+	appearance: none;
+	resize: none;
+}
+/*头部*/
+header{
+	width: 100%;
+	height: 0.88rem;
+	background: #fff;
+	border-bottom:1px solid #e5e5e5;
+	position: relative;
+}
+header p{
+	width: 100%;
+	height: 100%;
+	background: #fff;
+	text-align: center;
+	line-height: 0.88rem;
+	font-family: PingFangSC-Regular;
+	font-size: 0.36rem;
+	color: #333333;
+	letter-spacing: 0;
+}
+header span{
+	width:0.9rem;
+	height:100%;
+	line-height:0.9rem;
+	text-align: center;
+	vertical-align: middle;
+	font-size: 0.32rem;
+	color: #666666;
+	letter-spacing: 0.53px;
+}
+header span img{
+	height:0.32rem;
+	vertical-align: middle;
+	margin-top:-3px;
+}
+header .left{
+	position: absolute;
+	top:0;
+	left:0;
+}
+header .right{
+	position: absolute;
+	top:0;
+	right:0;
+	margin-right:0.2rem;
+}
+.myCodeWrap{
+	width: 100%;
+	flex: 1;
+	-webkit-flex: 1;
+	overflow-x:hidden;
+	overflow-y: scroll;
+	text-align: center;
+}
+.inviter_letter_img {
+    display: inline-block;
+    width: 1.8rem;
+}
+.myCodeTit{
+	text-align: center;
+	color: #fff;
+	font-size:0.3rem;
+	margin-top: 0.5rem;
+}
+#inviteText{
+	height: 1rem;
+	width:7.1rem;
+	margin: 0.7rem auto 0;
+	text-align: center;
+	line-height:1rem;
+	font-size:0.26rem;
+	color: #000;
+	background: #eee;
+}
+.copyTit{
+	text-align: center;
+	font-size: 0.27rem;
+	color: #c88d6d;
+	line-height: 0.75rem;
+}
+.erweiWrap{
+	background: #fff;
+	border-radius: 0.2rem;
+	margin: 0.6rem auto 0;
+	overflow: hidden;
+}
+.erweiWrap img{
+	display: block;
+	width:2.5rem;
+	margin: 0.6rem auto 0.4rem;
+}
+.erweiWrap p{
+	font-size: 0.24rem;
+	color:#000;
+	text-align: center;
+}

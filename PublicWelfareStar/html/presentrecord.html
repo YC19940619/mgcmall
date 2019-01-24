@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>提现记录</title>
+    <link rel="stylesheet" href="../common/common.css" />
+    <script type="text/javascript" src="../cordova.js"></script>
+    <script src="../common/jquery-2.2.1.min.js"></script>
+    <script src="../common/common.js"></script>
+    <script type="text/javascript" src="../common/rem.js"></script>
+    <script type="text/javascript" src="../common/fastclick.js"></script>
+    <style>
+        section{
+            overflow-y:scroll;
+            overflow-x:hidden;
+        }
+        ul{
+            width:100%;
+            height:auto;
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            padding-left:0.3rem;
+            background: #fff;
+        }
+        .record{
+            display: flex;
+            display: -webkit-flex;
+            flex-direction: row;
+            -webkit-flex-direction: row;
+            width:100%;
+            height:1.3rem;
+            border-bottom: 1px solid rgba(0,0,0,0.10);
+            background: #fff;
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            padding:0.3rem 0;
+        }
+        .record .left{
+            width:1rem;
+            height:0.7rem;
+            font-size: 13px;
+            color: #666666;
+            letter-spacing: 0.43px;
+        }
+        .record .left p{
+            height:0.35rem;
+            line-height: 0.35rem;
+        }
+        .record .center{
+            height:0.7rem;
+            flex:1;
+            -webkit-flex: 1;
+        }
+        .record .center p{
+            height:0.35rem;
+            line-height: 0.35rem;
+            font-size: 0.26rem;
+            color: #333333;
+            letter-spacing: 0.43px;
+            text-indent: 0.35rem;
+        }
+        .record .img img{
+            display: block;
+            width: 100%;
+            height:100%;
+        }
+        .record .right{
+            font-size:0.3rem;
+            color: #333333;
+            letter-spacing: 0.5px;
+            height:0.7rem;
+            line-height:0.7rem;
+            padding-right:0.3rem;
+            font-weight:bold;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <span class="left goback"><img src="../img/common/goback.png"></span>
+    <p>提现记录</p>
+</header>
+<section>
+    <ul>
+    </ul>
+
+</section>
+<script>
+    // 返回上一级
+    FastClick.attach(document.body);
+    document.addEventListener("deviceready", onDeviceReady, false);
+    function onDeviceReady() {
+        document.addEventListener("backbutton",function(){
+            window.location.href="wallet.html";
+        }, false);
+    }
+    $('header .goback').click(function(){
+        window.location.href="wallet.html";
+    })
+    $('section').delegate(".record","click",function(){
+        var withdraw_serial_num = $(this).attr("withdraw_serial_num");
+        window.location.href="presentrecorddetail.html?withdraw_serial_num="+withdraw_serial_num;
+    })
+    var uid = localStorage.getItem("uid");
+    var sessionid = localStorage.getItem("sessionid");
+    var senddata = {
+        uid: uid,
+        sessionid: sessionid,
+    }
+    $.ajax({
+        type: 'GET',
+        url: withdraw,
+        data:senddata,
+        success: function(data){
+            console.log(data)
+            if(data.status==0){
+                var str=''
+                for(var i=0;i<data.withdraw_list.length;i++){
+                    var bank_card_id = data.withdraw_list[i].bank_card_id;//卡号
+                    var bank_name = data.withdraw_list[i].bank_name;//y银行名字
+                    var fee = data.withdraw_list[i].fee;//手续费
+                    var profit = data.withdraw_list[i].profit;//金额
+                    var status = data.withdraw_list[i].status;//状态
+                    var timestamp =new Date(data.withdraw_list[i].timestamp.replace(/-/g,"/"));//日期 ios不支持-格式的日期 需要把-转化成/
+                    var Month = timestamp.getMonth()+1; //获取当前月份(0-11,0代表1月)所以获取当前月份是myDate.getMonth()+1;
+                    var riqi = timestamp.getDate(); //获取当前日(1-31)
+                    if(riqi<10){
+                        riqi=0+""+riqi;
+                    }
+                    if(Month<10){
+                        Month=0+""+Month;
+                    }
+                    var Day = timestamp.getDay(); //获取当前星期X(0-6,0代表星期天)
+                    if(Day == 0){
+                        var Daytext = "周日";
+                    }else if(Day == 1){
+                        var Daytext = "周一";
+                    }else if(Day == 2){
+                        var Daytext = "周二";
+                    }else if(Day == 3){
+                        var Daytext = "周三";
+                    }else if(Day == 4){
+                        var Daytext = "周四";
+                    }else if(Day == 5){
+                        var Daytext = "周五";
+                    }else if(Day == 6){
+                        var Daytext = "周六";
+                    }
+                    var withdraw_serial_num = data.withdraw_list[i].withdraw_serial_num;//单号
+                    str+='<div class="record" withdraw_serial_num="'+withdraw_serial_num+'"><div class="left"><p class="week">'
+                        +Daytext+
+                        '</p><p class="day">'
+                        +Month+"-"+riqi+
+                        '</p></div><div class="center"><p class="bank">'
+                        +bank_name+'（'+bank_card_id.substr(bank_card_id.length-4)+
+                        '）</p><p class="state">'+status+'</p></div><div class="right">￥'+profit+'</div></div>'
+                }
+                $("section ul").html(str);
+            }else if(data.status == 20129){
+                $("section").css("background","#fff");
+                str = '<p class="dingIcon"><img src="../img/common/kongtixian.png"></p><p class="dingTit">暂无交易记录~</p>'
+                $("section ul").html(str);
+            }
+        },
+        error:function(data){
+            new Toast({context: $('body'), message: "网络加载失败"}).show();
+        }
+    });
+</script>
+</body>
+</html>

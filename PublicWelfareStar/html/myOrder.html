@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<!-- uc强制竖屏 -->
+		<meta name="screen-orientation" content="portrait">
+		<!-- QQ强制竖屏 -->
+		<meta name="x5-orientation" content="portrait">
+		<meta content="telephone=no" name="format-detection" />
+		<title></title>
+		<link rel="stylesheet" href="../common/mescroll.min.css" />
+		<link rel="stylesheet" href="../common/common.css" />
+		<link rel="stylesheet" href="../css/myOrder.css" />
+		<script type="text/javascript" src="../cordova.js"></script>
+		<script src="../common/jquery-2.2.1.min.js"></script>
+		<script src="../common/rem.js"></script>
+		<script src="../common/common.js"></script>
+		<script src="../common/md5.js"></script>
+		<script type="text/javascript" src="../common/fastclick.js"></script>
+	</head>
+	<body>
+		<header>
+			<span class="left goback"><img src="../img/common/goback.png"></span>
+			<p>我的订单</p>
+		</header>
+		<section>
+			<div class="tab">
+			    <a order_status="" href="javascript:;" class="item active">全部</a>
+			    <a order_status = 0 href="javascript:;" class="item">待付款</a>
+			    <a order_status = 1 href="javascript:;" class="item">待发货</a>
+				<a order_status = 2 href="javascript:;" class="item">已发货</a>
+				<a order_status = 3 href="javascript:;" class="item">已完成</a>
+			</div>
+			<div class="content">
+				<div id="mescroll0" class="mescroll">
+					<ul id="dataList0" class="data-list">
+
+					</ul>
+				</div>
+				<div id="mescroll1" class="mescroll none">
+					<ul id="dataList1" class="data-list">
+
+					</ul>
+				</div>
+				<div id="mescroll2" class="mescroll none">
+					<ul id="dataList2" class="data-list">
+
+					</ul>
+				</div>
+				<div id="mescroll3" class="mescroll none">
+					<ul id="dataList3" class="data-list">
+
+					</ul>
+				</div>
+				<div id="mescroll4" class="mescroll none">
+					<ul id="dataList4" class="data-list">
+
+					</ul>
+				</div>
+			</div>
+		</section>
+		<script src="../common/rem.js"></script>
+		<script src="../common/mescroll.min.js"></script>
+		<script src="../common/common.js"></script>
+		<script type="text/javascript" src="../js/myOrder.js"></script>
+		
+	</body>
+</html>

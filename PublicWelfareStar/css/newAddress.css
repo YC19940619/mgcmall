@@ -1,0 +1,83 @@
+header p{
+	color: #000;
+}
+section{
+	width: 100%;
+	height: 100%;
+	position: relative;
+	color: #333;
+	background: #fff;
+}
+section ul{
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	padding:0.65rem 0.2rem;
+}
+section ul li{
+	height: 1rem ;
+	line-height: 1rem;
+	border-bottom: 1px solid #f6f6f6;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	padding: 0 0.3rem;
+	font-size: 0.28rem;
+	display: flex;
+	display: -webkit-flex;
+}
+section ul li .left{
+	float: left;
+	width: 1.6rem;
+	height: 1rem;
+	line-height: 1rem;
+	font-size: 0.28rem;
+}
+section ul li .txt{
+	height: 1rem;
+	flex: 1;
+	color: #333;
+	font-size: 0.24rem;
+	border: none;
+	outline: none;
+	padding: 0;
+	margin: 0;
+	background: none;
+}
+section ul li .right{
+	float: right;
+	height: 1rem;
+	line-height: 1rem;
+	font-size: 0.32rem;
+}
+section ul .detail_address{
+	width: 100%;
+	height:1rem;
+}
+.detail_address input{
+	font-size:0.24rem;
+	flex: 1;
+	-webkit-flex: 1;
+}
+section .delete{
+	width: 100%;
+	height: 0.8rem;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	padding: 0 0.25rem ;
+	position: fixed;
+	bottom:0.3rem;
+	left:0;
+}
+section .delete p{
+	width: 100%;
+	height: 0.8rem;
+	text-align: center;
+	line-height: 0.8rem;
+	background: #C88D6D;
+	color: #fff;
+	font-size: 0.32rem;
+	letter-spacing: 0;
+}
+.mui-btn-blue{
+	border: 1px solid #c88d6d;
+	background-color: #c88d6d;
+}

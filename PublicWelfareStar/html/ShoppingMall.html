@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta content="telephone=no" name="format-detection" />
+    <!-- uc强制竖屏 -->
+    <meta name="screen-orientation" content="portrait">
+    <!-- QQ强制竖屏 -->
+    <meta name="x5-orientation" content="portrait">
+    <title>商城</title>
+    <link rel="stylesheet" type="text/css" href="../common/mescroll.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../common/common.css" />
+    <link rel="stylesheet" type="text/css" href="../css/ShoppingMall.css" />
+    <script type="text/javascript" src="../cordova.js"></script>
+    <script type="text/javascript" src="../common/md5.js"></script>
+    <script type="text/javascript" src="../common/jquery-2.2.1.min.js"></script>
+    <script src="../common/mescroll.min.js"></script>
+    <script src="../common/lazyload.js"></script>
+    <script type="text/javascript" src="../common/rem.js"></script>
+    <script type="text/javascript" src="../common/common.js"></script>
+    <script type="text/javascript" src="../common/fastclick.js"></script>
+
+    <script>
+        document.addEventListener("deviceready", onDeviceReady, false);
+
+        function onDeviceReady() {
+            //navigator.splashscreen.hide();
+            document.addEventListener("backbutton", onBackKeyDown, false);
+        }
+        function onBackKeyDown() {
+            new Toast({context:$('body'),message:('再点击一次退出!')}).show();
+            document.removeEventListener("backbutton", onBackKeyDown, false); // 注销返回键
+            document.addEventListener("backbutton", exitApp, false);//绑定退出事件
+            // 3秒后重新注册
+            var intervalID = window.setInterval(function() {
+                window.clearInterval(intervalID);
+                document.removeEventListener("backbutton", exitApp, false); // 注销返回键
+                document.addEventListener("backbutton", onBackKeyDown, false); // 返回键
+            }, 3000);
+        }
+        function exitApp(){
+            navigator.app.exitApp();
+        }
+        /*//菜单键
+        function eventMenuButton(){
+            window.plugins.ToastPlugin.show_short('点击了 菜单 按钮!');
+        }
+        //搜索键
+        function eventSearchButton(){
+            window.plugins.ToastPlugin.show_short('点击了 搜索 按钮!');
+        }*/
+    </script>
+</head>
+
+<body>
+<header>
+    <span class="iconfont left sidebarbtn">&#xe604;</span>
+    <p>商城</p>
+</header>
+<section>
+    <div class="itemnav "><span category_id="10002" class="active">项链</span><span category_id="10003">手链</span><span category_id="10004">戒指</span><span category_id="10008">耳饰</span><span category_id="10017">配件</span></div>
+    <div class="sortnav">
+        <span class="pricebtn" sort="0">价格 <i class="change"><img class="top" src="../img/common/tophui.png"><img class="bottom" src="../img/common/bottomhui.png"></i></span>
+        <span class="salesvolumebtn">销量优先</span>
+        <span class="screenbtn"> <img src="../img/common/shaixuan.png"> 筛选</span>
+    </div>
+    <div class="contentitem">
+        <div id="mescroll" class="mescroll itembox">
+            <ul id="dataList" class="data-list">
+
+            </ul>
+        </div>
+    </div>
+
+</section>
+<div class="screenmask displayNone">
+    <div class="screen">
+        <div class="top">
+            <div class="content"></div>
+        </div>
+        <div class="bottom"><span class="reset">重置</span><span class="complete">完成</span></div>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="../js/ShoppingMall.js"></script>
+</html>

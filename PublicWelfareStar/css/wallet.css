@@ -1,0 +1,108 @@
+header{
+	position: relative;
+	line-height: 0.88rem;
+}
+
+section{
+	width: 100%;
+	box-sizing: border-box;
+	-webkit-box-sizing:border-box;
+	background: #fff;
+}
+section .top{
+	height:4.8rem;
+	width: 100%;
+	background:url(../img/bj/wallectbj.png) no-repeat 0 0;
+	background-size:cover;
+	overflow: hidden;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	padding:0 0.2rem;
+}
+.top p{
+	color:#fff;
+}
+.balance{
+	margin-top:0.84rem;
+	font-family: PingFangHK-Regular;
+	font-size:0.24rem;
+	color: #666666;
+}
+.money{
+	font-family: PingFangHK-Medium;
+	font-size:0.64rem;
+	color: #333333;
+	line-height: 1.2rem;
+}
+.sale{
+	position: relative;
+	font-size:0.24rem;
+	color: #fff;
+}
+.sale .Invitation{
+	position: absolute;
+	right:0.06rem;
+	top:0.3rem;
+	width:1.7rem;
+	text-align: center;
+	line-height:0.47rem;
+	border: 1px solid #fff;
+}
+.sale i{
+	font-style: normal;
+	color: #fff;
+	margin-left:0.24rem;
+	font-size: 0.24rem;
+}
+.tixian{
+	margin-top:0.5rem;
+	line-height:0.5rem;
+	text-align: center;
+	color: #fff;
+	font-size:0.26rem;
+}
+
+section .wrap{
+	background: #fff;
+	width: 100%;
+	margin-top: 0.8rem;
+}
+section .wrap ul{
+	overflow: hidden;
+	box-sizing: border-box;
+	margin:0 0.2rem;
+}
+section ul li{
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	padding:0 0.3rem;
+	border-bottom:0.01rem solid #b4b4b4;
+	height:1.04rem;
+	line-height: 1.04rem;
+	font-size: 0.28rem;
+	position: relative;
+	color: #666;
+	font-family: PingFangHK-Regular;
+	overflow: hidden;
+}
+section ul li b{
+	font-size: 0.28rem;
+	font-weight: normal;
+	float: left;
+}
+section ul li i{
+	float: right;
+	margin: 0 0.3rem;
+    font-size: 0.3rem;
+	color: #999;
+}
+section ul li div{
+	float: right;
+}
+section ul li div span{
+	font-size: 0.28rem;
+	color: #a7a7a7;
+}
+section ul li div i{
+	color: #999;
+}

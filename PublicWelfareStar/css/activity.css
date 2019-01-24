@@ -1,0 +1,305 @@
+section{
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: column;
+    -webkit-flex-direction: column;
+    position: relative;
+}
+section .nav{
+    width:100%;
+    height:0.88rem;
+    line-height:0.88rem;
+    overflow: hidden;
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: row;
+    -webkit-flex-direction: row;
+    justify-content: space-around;
+    -webkit-justify-content: space-around;
+    background: #eeeeee;
+}
+section .nav li{
+    height:0.88rem;
+    font-size: 0.28rem;
+    color:  #000;
+    border-bottom: 0.04rem solid #eeeeee;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    text-align: center;
+    padding: 0 0.2rem;
+}
+section .nav li.active{
+    color: #c88d6d;
+    border-bottom: 0.04rem solid #c88d6d;
+}
+section .content{
+    width:100%;
+    flex:1;
+    -webkit-flex: 1;
+    position: relative;
+}
+section .content #mescroll2 .box{
+    width:100%;
+    height:auto;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    padding:0 0.2rem;
+    margin-top: 0.4rem;
+}
+section .content #mescroll2 .box .detail{
+    width:100%;
+    height:auto;
+    background: #eeeeee;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    padding: 0.2rem;
+    position: relative;
+}
+section .content #mescroll2 .box  .detail img{
+    display: block;
+    width:100%;
+}
+section .content #mescroll2 .box .detail h2{
+    width:100%;
+    line-height:0.4rem;
+    color: #333;
+    /*text-indent: 0.24rem;*/
+    padding-top:0.2rem;
+}
+/*section .content #mescroll1 .box .detail p{*/
+/*width:100%;*/
+/*height:auto;*/
+/*line-height:0.28rem;*/
+/*color: #BCC0C4;*/
+/*transform: scale(0.8);*/
+/*-webkit-transform: scale(0.8);*/
+/*margin-left:-10%;*/
+/*}*/
+section .content #mescroll2 .box .bottom{
+    width: 100%;
+    height: 0.5rem;
+}
+section .content #mescroll2 .box .bottom p{
+    width: 50%;
+    line-height: 0.5rem;
+    float: left;
+    color: #999999;
+}
+section .content #mescroll2 .box .bottom .read{
+    text-align: right;
+}
+section .content #mescroll1 .box{
+    width:100%;
+    height:auto;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    padding:0 0.2rem;
+    margin-top: 0.4rem;
+}
+section .content #mescroll1 .box .detail{
+    width:100%;
+    height:auto;
+    background: #eeeeee;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    padding: 0.2rem;
+    position: relative;
+}
+section .content #mescroll1 .box  .detail img{
+    display: block;
+    width:100%;
+}
+section .content #mescroll1 .box .detail h2{
+    width:100%;
+    line-height:0.4rem;
+    color: #333;
+    /*text-indent: 0.24rem;*/
+    padding-top:0.2rem;
+}
+/*section .content #mescroll1 .box .detail p{*/
+    /*width:100%;*/
+    /*height:auto;*/
+    /*line-height:0.28rem;*/
+    /*color: #BCC0C4;*/
+    /*transform: scale(0.8);*/
+    /*-webkit-transform: scale(0.8);*/
+    /*margin-left:-10%;*/
+/*}*/
+section .content #mescroll1 .box .bottom{
+    width: 100%;
+    height: 0.5rem;
+}
+section .content #mescroll1 .box .bottom p{
+    width: 50%;
+    line-height: 0.5rem;
+    float: left;
+    color: #999999;
+}
+section .content #mescroll1 .box .bottom .read{
+    text-align: right;
+}
+section .content .mescroll{
+    width:100%;
+    height:100%;
+    display: none;
+    position: absolute;
+    left:0;
+    top:0;
+    background: #fff;
+}
+section .content .mescroll:first-child{
+    display: block;
+}
+section .content #mescroll0{
+    background: #fff;
+}
+section .content #mescroll0 .dynamic{
+    width:100%;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    padding:0.6rem 0.2rem 0;
+    border-bottom:1px solid #d7d7d7;
+}
+section .content #mescroll0 .dynamic .headimg{
+    height:0.8rem;
+    width:100%;
+    overflow: hidden;
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: row;
+    -webkit-flex-direction: row;
+}
+section .content #mescroll0 .dynamic .headimg .left{
+    width:0.8rem;
+    height:0.8rem;
+    margin-right:0.2rem;
+}
+section .content #mescroll0 .dynamic .headimg .left img{
+    display: block;
+    width:100%;
+    height:100%;
+}
+section .content #mescroll0 .dynamic .headimg .center{
+    height:1rem;
+    flex:1;
+    -webkit-flex: 1;
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: row;
+    -webkit-flex-direction: row;
+}
+section .content #mescroll0 .dynamic .headimg .center .nickname{
+    flex: 1;
+    -webkit-flex: 1;
+    height:0.8rem;
+    line-height:0.8rem;
+    font-size: 0.28rem;
+    color: #000;
+    float: left;
+}
+section .content #mescroll0 .dynamic .headimg .center .time{
+    color: #a1a1a1;
+    line-height: 0.8rem;
+    /*transform: scale(0.75);*/
+    /*-webkit-transform: scale(0.75);*/
+    /*margin-left:-14%;*/
+    /*backface-visibility: hidden;*/
+    /*-webkit-backface-visibility: hidden;*/
+    float: right;
+}
+section .content #mescroll0 .dynamic .describe{
+    width:100%;
+    height:auto;
+    padding-bottom: 0.2rem;
+    /*border-bottom: 1px solid #c8c8c8;*/
+}
+
+section .content #mescroll0 .dynamic .describe p{
+    font-size: 0.24rem;
+    line-height:0.4rem;
+    color: #343434;
+
+}
+section .content #mescroll0 .dynamic .imgbox{
+    width:100%;
+    height:auto;
+    margin:0.2rem 0;
+    overflow: hidden;
+}
+section .content #mescroll0 .dynamic .imgbox img{
+    float: left;
+    width:30%;
+    margin-right:5%;
+    margin-bottom:0.2rem;
+}
+section .content #mescroll0 .dynamic .imgbox img:last-child{
+    margin: 0;
+}
+section .content #mescroll0 .dynamic .bottom{
+    width:100%;
+    height:0.6rem;
+    /*line-height:0.6rem;*/
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    position: relative;
+    /*border-top: 1px solid rgba(0,0,0,0.10);*/
+    overflow: hidden;
+}
+section .content #mescroll0 .dynamic .bottom b{
+    display: none;
+    position: absolute;
+    height:0.34rem;
+    width:0.04rem;
+    left:50%;
+    top:50%;
+    margin:-0.17rem 0 0 -0.02rem;
+    background: rgba(0,0,0,0.30);
+}
+section .content #mescroll0 .dynamic .bottom span {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    float: left;
+    height: 0.6rem;
+    width: 50%;
+    font-size: 0.24rem;
+    color: #999999;
+}
+section .content #mescroll0 .dynamic .bottom span i{
+    float: left;
+    height: 0.6rem;
+    line-height: 0.6rem;
+    display: inline-block;
+    font-size: 0.24rem;
+}
+section .content #mescroll0 .dynamic .bottom span .num{
+    color: #000;
+}
+section .content #mescroll0 .dynamic .bottom span img{
+    height:0.26rem;
+    margin: 0.2rem;
+}
+section .content #mescroll0 .dynamic .bottom .thumbs-up{
+    text-align: left;
+}
+section .content #mescroll0 .dynamic .bottom .Customizing{
+    text-align: right;
+    line-height: 0.6rem;
+    color: #c88d6d;
+    font-size: 0.26rem;
+}
+iframe.articledetail{
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 100%;
+    top: 0;
+    /*border: 0;*/
+    z-index: 10;
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+    border: 0px solid #000;
+}
+iframe.articledetail.active{
+    left:0;
+}

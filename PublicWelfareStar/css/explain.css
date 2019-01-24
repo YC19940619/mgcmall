@@ -1,0 +1,58 @@
+section{
+	overflow-x: hidden;
+	overflow-y: scroll;
+	background: #fff;
+}
+section ul{
+	margin:0.25rem;
+	border-radius:0.1rem;
+	box-sizing: border-box;
+	padding:0.2rem 0.3rem
+}
+section ul .p2{
+	font-size: 0.3rem;
+	line-height: 0.4rem;
+	margin-bottom: 0.2rem;
+	color:#c88d6d;
+}
+section ul li{
+	font-size:0.25rem;
+	line-height: 0.5rem;
+	margin-left: 0.2rem;
+}
+section ul li div{
+	text-indent: 0.6rem;
+	font-size:0.25rem;
+}
+fieldset{
+	border:none;
+	border-top:1px solid #000;
+	margin:0 auto;
+	height:0.7rem;
+	line-height:0.7rem;
+}
+fieldset legend{
+	text-align:center;
+	padding:0 0.3rem;
+	color: #000;
+	font-size:0.32rem;
+}
+.quesWrap{
+	position: relative;
+	margin:0 0 0.3rem;
+}
+.question{
+	color: #000000;
+	font-size:0.26rem;
+	font-weight:bold;
+	line-height:0.42rem;
+	margin-left:0.2rem;
+}
+.quesWrap:before{
+	position:absolute;
+	content:"";
+	width:0.06rem;
+	height:0.42rem;
+	border-left:0.06rem solid #c88d6d;
+	
+}

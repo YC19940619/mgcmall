@@ -1,0 +1,75 @@
+body{
+	display: flex;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+}
+section{
+	flex: 1;
+	-webkit-flex: 1;
+	-moz-flex:1;
+	-o-flex:1;
+	background: #fff;
+	-ms-flex: 1;
+	position: relative;
+}
+section .wrap{
+	background: #fff;
+	margin:0 0.2rem;
+	margin-top: 0.1rem;
+}
+section .wrap ul{
+	overflow: hidden;
+	box-sizing: border-box;
+}
+section ul li{
+	border-bottom:0.01rem solid rgba(0,0,0,0.1);
+	height: 1.05rem;
+	line-height:  1.05rem;
+	font-size: 0.28rem;
+	position: relative;
+	font-family: PingFangHK-Regular;
+	display: flex;
+	display: -webkit-flex;
+	flex-direction: row;
+	-webkit-flex-direction: row;
+}
+
+section ul li span:first-child{
+	height:1.05rem;
+	line-height:1.05rem;
+	color: #000;
+}
+section ul li span{
+	color:#dbdbdb;
+	margin: 0 0.3rem;
+	font-size: 0.3rem;
+	height:1.05rem;
+	line-height:1.05rem;
+}
+.goto{
+	font-size:0.4rem;
+	color: #000;
+}
+section ul li p{
+	text-align: right;
+	height:1.05rem;
+	flex:1;
+	line-height: 1.05rem;
+	color: #666;
+}
+.exitBtn{
+	position: absolute;
+	width:80%;
+	height: 0.8rem;
+	bottom:0.28rem;
+	left: 10%;
+
+	text-align: center;
+	line-height: 0.8rem;
+	background: #e61c64;
+	border-radius: 5px;
+	font-size: 0.26rem;
+	color: #fff;
+}

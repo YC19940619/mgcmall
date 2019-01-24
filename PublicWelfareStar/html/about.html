@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta content="telephone=no" name="format-detection"/>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" href="../common/common.css" />
+		<link rel="stylesheet" href="../css/about.css" />
+		<script type="text/javascript" src="../cordova.js"></script>
+		<script src="../common/jquery-2.2.1.min.js"></script>
+		<script src="../common/common.js"></script>
+		<script type="text/javascript" src="../common/fastclick.js"></script>
+		<script type="text/javascript" src="../common/rem.js"></script>
+	</head>
+	<body>
+		<header>
+			<span class="left goback"><img src="../img/common/goback.png"></span>
+			<p>关于</p>
+		</header>
+		<section>
+			<p class="logoWrap"><img src="../img/logo.png" alt="" class="logo" /></p>
+			<p class="version" style="color:#000;text-align: center;line-height:30px;">版本号 1.0.3</p>
+			<p style="text-align: center;color:#000;line-height:30px;">公司名称：梦工场珠宝企业管理有限公司</p>
+			<p class="declarList">梦工场珠宝工业 4.0“科技赋能平台”，致力于连接珠宝产业上游制造与终端零售，以C2M 的模式，满足消费者个性化的珠宝需求，积极拓展跨界明星 IP 管理与行业转换、物联网、大数据、人脸识别、人工智能等创新技术在珠宝行业的推广应用。
+			</p><p class="declarList">同时，梦工场作为芭莎公益星设计全国金店渠道独家推广合作伙伴，和全国各地的推广合作伙伴们一道助力，让“芭莎公益星设计”成为珠宝店独特的“品牌伴侣”，将时尚公益、明星创意、珠宝设计，以珠宝智慧门店的场景体验方式植入珠宝店，通过对明星的时尚创意及公益活动宣传推广，号召更多的人参与到时尚公益事业中来。</p>
+		</section>
+		<script>
+            FastClick.attach(document.body);
+			// 返回上一级
+			$(".version").text("版本号 "+localStorage.getItem("version"))
+			$('header .goback').click(function(){
+				history.go(-1);
+			})
+			$("section .judge").click(function(){
+                new Toast({context:$('body'),message:"此功能暂未开放"}).show();
+            })
+            $("section .decaler").click(function(){
+                new Toast({context:$('body'),message:"此功能暂未开放"}).show();
+            })
+		</script>
+	</body>
+</html>

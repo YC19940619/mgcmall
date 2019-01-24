@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <!-- uc强制竖屏 -->
+    <meta name="screen-orientation" content="portrait">
+    <!-- QQ强制竖屏 -->
+    <meta name="x5-orientation" content="portrait">
+    <meta content="telephone=no" name="format-detection" />
+    <title>我的邀请码</title>
+    <link rel="stylesheet" href="../common/common.css" />
+    <link rel="stylesheet" href="../css/InvitingFriends.css" />
+    <script src="../cordova.js"></script>
+    <script src="../common/jquery-2.2.1.min.js"></script>
+    <script type="text/javascript" src="../common/fastclick.js"></script>
+    <script src="../common/md5.js"></script>
+    <script src="../common/clipboard.min.js"></script>
+</head>
+<body>
+<header>
+    <header>
+        <span class="left goback"><img src="../img/common/goback.png"></span>
+        <p>邀请好友</p>
+        <span class="right myinviting">设置邀请人</span>
+    </header>
+</header>
+<section>
+    <img class="yaoqing" src="../img/yaoqing.png">
+    <p class="codep"></p>
+    <p class="sharep">发送我的专属优惠邀请链接</p>
+    <div class="rule">
+        <div class="ruleWrap"><h2>邀请码使用规则</h2></div>
+        <p>1、用户通过登陆注册即可生成您的专属邀请码，每个账户只能拥有一个唯一邀请码。</p>
+        <p>2、用户可通过邀请好友功能，让好友绑定自己的邀请码。</p>
+        <p>3、当好友成功定制商品并支付订单，我们会给予好友一定比例的订单金额作为您的佣金奖励。</p>
+        <p>4、珠宝梦工场对邀请码及相关优惠拥有最终解释权。</p>
+    </div>
+</section>
+<div class="binding">
+    <span class="remove iconfont">&#xe61a;</span>
+    <input type="text" class="code" value="" placeholder="请输入邀请码">
+    <p class="Notice">* 邀请码绑定之后不可更改，请慎重考虑</p>
+    <input type="button" class="btn" value="绑定">
+</div>
+<div class="sharediv">
+    <ul>
+        <dl>
+            <dt>
+                <img src="../img/customization/wechat.png"/>
+            </dt>
+            <dd>微信</dd>
+        </dl>
+        <dl>
+            <dt>
+                <img src="../img/customization/wechats.png"/>
+            </dt>
+            <dd>朋友圈</dd>
+        </dl>
+        <dl>
+            <dt>
+                <img src="../img/customization/qq.png"/>
+            </dt>
+            <dd>QQ</dd>
+        </dl>
+        <dl>
+            <dt>
+                <img src="../img/customization/qqs.png"/>
+            </dt>
+            <dd>QQ空间</dd>
+        </dl>
+    </ul>
+    <span class="remove"><img src="../img/xo.png"></span>
+</div>
+<script src="../common/rem.js"></script>
+<script src="../common/common.js"></script>
+<script>
+    FastClick.attach(document.body);
+    var uid=localStorage.getItem('uid');
+    var sessionid=localStorage.getItem('sessionid');
+
+    $(".goback").click(function(){
+        history.go(-1)
+    })
+    $(".binding .remove").click(function(){
+        $(".binding").css("display","none")
+    })
+    $(".myinviting").click(function(){//判断是否可点击
+        if($(".myinviting").attr("upper_level_sharing_code")){
+            $(".code").attr({"placeholder":$(".myinviting").attr("upper_level_sharing_code"),"readonly":"readonly"});
+            //$(".Notice").text("*您已绑定上级邀请码");
+            $(".btn").val("您已绑定上级邀请码");
+        }else{
+
+        }
+        $(".binding").css("display","block")
+    })
+    $.ajax({//查询邀请码
+        type: "get",
+        url: getdealersys ,
+        async: true,
+        crossDomain: true,
+        data: {
+            uid:uid,
+            sessionid:sessionid
+        },
+        success: function(data) {
+            console.log(data);
+            if(data.status==0){
+                $(".codep").text(data.sharing_code);
+                $('.copyp').attr("data-clipboard-text",data.sharing_code);
+
+                if(data.upper_level_sharing_code !=""){
+                    $(".myinviting").attr({"upper_level_sharing_code":data.upper_level_sharing_code})
+                }
+            }
+        },
+        error:function(){
+            new Toast({context:$('body'),message:"网络故障"}).show();
+        }
+    })
+    var clipboard =  new Clipboard('.copyp');
+    clipboard.on('success', function(e) {
+        // console.info('Action:', e.action);
+        // console.info('Text:', e.text);
+        // console.info('Trigger:', e.trigger);
+        new Toast({context:$('body'),message:"复制成功"}).show();
+        //e.clearSelection();
+    });
+    clipboard.on('error', function(e) {
+        console.error('Action:', e.action);
+        console.error('Trigger:', e.trigger);
+    });
+    $('.code').keyup(function(){
+        $('.code').val($('.code').val().replace(/\s/g,""))
+    })
+    $(".btn").click(function(){
+        $.ajax({//绑定邀请码
+            type: "post",
+            url: getdealersys ,
+            async: true,
+            crossDomain: true,
+            data: {
+                uid:uid,
+                sessionid:sessionid,
+                sharing_code:$(".code").val()
+            },
+            success: function(data) {
+                console.log(data);
+                if(data.status==0){
+                    new Toast({context:$('body'),message:"绑定邀请码成功！"}).show();
+                    $(".binding").css("display","none")
+                    $(".myinviting").attr("upper_level_sharing_code",$(".code").val())
+                    $(".code").val("")
+                }else if(data.status==20116){
+                    new Toast({context:$('body'),message:"不合法的邀请码!"}).show();
+                }else if(data.status==20118){
+                    new Toast({context:$('body'),message:"无法绑定自己的邀请码!"}).show();
+                }else if(data.status==20115){
+                    new Toast({context:$('body'),message:"上级邀请码已经绑定!"}).show();
+                }
+            },
+            error:function(){
+                new Toast({context:$('body'),message:"网络加载失败！"}).show();
+            }
+        })
+
+
+    })
+    //分享
+    $(".sharep").click(function() {
+        $(".sharediv").css("display", "block")
+        document.addEventListener("deviceready", function() {
+            appintance = new app();
+            var obj = $(".sharediv ul dl");
+            appintance.wechatInstall(function(){
+                obj.eq(0).css("display","inline-block");
+                obj.eq(1).css("display","inline-block");
+            },function(){
+                obj.eq(0).css("display","none");
+                obj.eq(1).css("display","none");
+            });
+            appintance.qqInstall(function(){
+                obj.eq(2).css("display","inline-block");
+                obj.eq(3).css("display","inline-block");
+            },function(){
+                obj.eq(2).css("display","none");
+                obj.eq(3).css("display","none");
+            });
+        }, true);
+    })
+    //取消
+    $(".sharediv .remove").click(function() {
+        $(".sharediv").css("display", "none")
+    })
+    //分享
+    var title = "我的邀请码";
+    var description = "我的邀请码";
+    var imgsrc = domainLm+"img/icon.png";
+    var invertor =encodeURI(localStorage.getItem('nickname'));
+    $(".sharediv dl").eq(0).click(function(){
+        var invertorDemo = $(".codep").text();
+        var webpageUrl = domainLm+"Shareinvitationcodes.html?invertor="+invertor+"&invertorDemo="+invertorDemo;
+        //console.log(imgsrc,webpageUrl)
+        wechatsharelinkSESSION(title,description,imgsrc,webpageUrl);
+        $(".sharediv").css("display", "none")
+    })
+    $(".sharediv dl").eq(1).click(function(){
+        var invertorDemo = $(".codep").text();
+        var webpageUrl = domainLm+"Shareinvitationcodes.html?invertor="+invertor+"&invertorDemo="+invertorDemo;
+        wechatsharelinkTIMELINE(title,description,imgsrc,webpageUrl);
+        $(".sharediv").css("display", "none")
+    })
+    $(".sharediv dl").eq(2).click(function(){
+        var invertorDemo = $(".codep").text();
+        var webpageUrl = domainLm+"Shareinvitationcodes.html?invertor="+invertor+"&invertorDemo="+invertorDemo;
+        shareQQ(title,description,imgsrc,webpageUrl);
+        $(".sharediv").css("display", "none")
+    })
+    $(".sharediv dl").eq(3).click(function(){
+        var invertorDemo = $(".codep").text();
+        var webpageUrl = domainLm+"Shareinvitationcodes.html?invertor="+invertor+"&invertorDemo="+invertorDemo;
+        shareQQZone(title,description,imgsrc,webpageUrl);
+        $(".sharediv").css("display", "none")
+    })
+</script>
+</body>
+</html>

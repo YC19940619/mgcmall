@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta content="telephone=no" name="format-detection"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>绑定银行卡</title>
+    <link rel="stylesheet" href="../common/common.css" />
+    <script src="../common/jquery-2.2.1.min.js"></script>
+    <script src="../common/common.js"></script>
+    <script type="text/javascript" src="../common/rem.js"></script>
+    <script type="text/javascript" src="../common/ycbank.js"></script>
+    <style>
+    	section{
+    		background: #fff;
+    	}
+        ul{
+        	box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            padding:0.4rem 0.2rem 0;
+            height:auto;
+            background: #fff;
+            text-align: right;
+        }
+        ul div{
+            height:0.6rem;
+            line-height: 0.8rem;
+            margin-bottom:0.38rem;
+        }
+        ul div span{
+            /*float: left;*/
+            font-size: 0.26rem;
+            color: #000;
+            letter-spacing: -0.36px;
+        }
+        ul div input{
+        	/*float: left;*/
+        	display: inline-block;
+        	width: 5.82rem;
+        	height:0.58rem;
+        	border: 1px solid #eee;
+            color: #000;
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            padding-left: 0.1rem;
+            margin-left:0.15rem;
+        }
+       
+    </style>
+</head>
+<body>
+<header>
+    <span class="left goback"><img src="../img/common/goback.png"></span>
+    <p>绑定银行卡</p>
+    <span class="right">保存</span>
+</header>
+<section>
+    <ul>
+        <div class="name"><span>姓名</span><input type="text" placeholder=" 输入姓名" value=""></div>
+        <div class="code"><span>卡号</span><input type="number" placeholder=" 输入银行卡号" value="" id="bankInp"></div>
+        <div class="bank"><span>开户银行</span><input type="text" placeholder=" 输入开户银行" value=""></div>
+    </ul>
+</section>
+<script>
+    $(function(){
+        // 返回上一级
+        $('header .goback').click(function(){
+            history.go(-1);
+        })
+        var uid = localStorage.getItem("uid");
+        var sessionid = localStorage.getItem("sessionid");
+        //input监听
+        $(".code input").bind('input propertychange',function(){//input的内容发生变化时
+            $(".bank input").val(bankname(this.value))
+        });
+        $(".right").click(function(){
+            var username = $(".name input").val();
+            var bank_card_id = $(".code input").val();
+            var bank_name = $(".bank input").val();
+            if( username==""||bank_card_id==""||bank_name==""){
+                new Toast({context: $('body'), message: "请提交完整信息"}).show();
+            }else if(bank_card_id.length < 16 || bank_card_id.length > 19) {
+                new Toast({context: $('body'), message: "银行卡号长度必须在16到19之间"}).show();
+            }else{
+                var senddata = {
+                    uid: uid,
+                    sessionid: sessionid,
+                    username:username,
+                    bank_card_id:bank_card_id,
+                    bank_name:bank_name
+                }
+                //绑定银行卡
+                $.ajax({
+                    type: 'post',
+                    url: bank_card,
+                    data:senddata,
+                    success: function(data){
+                        console.log(data)
+                        if(data.status == 0){
+                            window.location.href=Request.QueryString("door")+"bank.html";
+                        }else if(data.status==20123){
+                            new Toast({context: $('body'), message:'此银行卡已经绑定过'}).show();
+                        }else{
+                            new Toast({context: $('body'), message:'银行卡绑定失败'}).show();
+                        }
+                    },
+                    error:function(data){
+                        new Toast({context: $('body'), message: "网络加载失败"}).show();
+                    }
+                });
+            }
+
+        })
+
+    })
+
+</script>
+</body>
+</html>

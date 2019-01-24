@@ -1,0 +1,299 @@
+section{
+    background: #fff;
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: column;
+    -webkit-flex-direction: column;
+}
+.itemnav{
+    height:0.86rem;
+    width:100%;
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: row;
+    -webkit-flex-direction: row;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    /*padding: 0 0.3rem;*/
+    position: relative;
+    background: #f0f0f0;
+}
+.itemnav .navborder{
+    width:auto;
+    height:0.04rem;
+    background: #c88d6d;
+    position: absolute;
+    left:0.3rem;
+    bottom:0;
+}
+.itemnav span{
+    flex:1;
+    -webkit-flex: 1;
+    width: 1rem;
+    height:0.82rem;
+    line-height:0.82rem;
+    text-align: center;
+    font-size: 0.28rem;
+    color: #828282;
+}
+.itemnav span.active{
+    color: #c88d6d;
+}
+.sortnav{
+    width:100%;
+    height:0.88rem;
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: row;
+    -webkit-flex-direction: row;
+    border-bottom:1px solid #ebebeb;
+    box-shadow: 0 1px 0.06rem #e5e5e5;
+    margin-bottom: 0.06rem;
+}
+.sortnav span{
+    float: left;
+    flex: 1;
+    -webkit-flex: 1;
+    height:0.88rem;
+    line-height: 0.88rem;
+    color:#999999;
+    text-align: center;
+    font-size: 0.24rem;
+}
+.sortnav .pricebtn i{
+    display: inline-block;
+    vertical-align: middle;
+    height:0.3rem;
+}
+.sortnav .pricebtn i img{
+    display: block;
+    height:0.13rem;
+}
+.sortnav .pricebtn i .top{
+    margin-bottom:0.02rem;
+}
+.sortnav .pricebtn i .bottom{
+    margin-top:0.02rem;
+}
+.sortnav .salesvolumebtn{
+    flex:1;
+    -webkit-flex: 1;
+}
+.sortnav .salesvolumebtn.active{
+    color:#c88d6d;
+}
+.sortnav .screenbtn{
+    width:1.5rem;
+    font-size: 0.26rem;
+    background: #c88d6d;
+    color: #fff;
+}
+.sortnav .screenbtn img{
+    height:0.3rem;
+    vertical-align: middle;
+}
+.contentitem{
+    width:100%;
+    flex:1;
+    -webkit-flex: 1;
+    position: relative;
+}
+.contentitem .mescroll {
+    width: 100%;
+    height: 100%;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding:0 0.3rem;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.contentitem .mescroll.active{
+    display: block;
+}
+.data-list{
+    overflow: hidden;
+}
+.itembox li{
+    width:48%;
+    float: left;
+    margin-bottom:0.3rem;
+    position: relative;
+}
+.itembox .Customlogo{
+    display: block;
+    width: 0.75rem;
+    position: absolute;
+    right: 0.3rem;
+    top: 0;
+
+}
+.itembox li:nth-of-type(odd){
+    margin-right:2%;
+}
+.itembox li:nth-of-type(even){
+    margin-left:2%;
+}
+.itembox li dl{
+    width:100%;
+    height:100%;
+}
+.itembox li dl dt{
+    width:100%;
+    overflow: hidden;
+}
+.itembox li dl dt img{
+    display: block;
+    width:80%;
+    margin:0.2rem auto;
+}
+.itembox li dl dd{
+    width:100%;
+    height:1rem;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    padding: 0 0.3rem;
+}
+.itembox li dl dd p{
+    width:100%;
+    height:0.5rem;
+}
+.itembox li dl dd p.name{
+    color: #666;
+    font-size: 0.28rem;
+    min-height:0.5rem;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    text-align: center;
+}
+.itembox li dl dd p.price{
+    color: #c88d6d;
+    font-size: 0.24rem;
+    text-align: center;
+}
+
+.screenmask{
+    width:100%;
+    height:100%;
+    position: fixed;
+    left:100%;
+    top:0;
+    background: rgba(0,0,0,0.3);
+    z-index:10;
+    transition: 0.3s ease;
+    -webkit-transition: 0.3s ease;
+
+}
+
+.screenmask.active{
+    left: 0;
+}
+.screenmask .screen{
+    width:80%;
+    float: right;
+    height:100%;
+    background: #fff;
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: column;
+    -webkit-flex-direction: column;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    padding: 0.75rem 0.25rem;
+}
+.screenmask .screen .top{
+    width:100%;
+    flex:1;
+    -webkit-flex: 1;
+    background: #fff;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    padding-bottom:0.5rem;
+    display: flex;
+    display:-webkit-flex;
+}
+.screenmask .screen .top .content{
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+}
+.screenmask .screen .top .option{
+    flex: 1;
+    -webkit-flex: 1;
+    height:auto;
+}
+.screenmask .screen .top .option .title{
+    width:100%;
+    height:0.5rem;
+    line-height: 0.5rem;
+    color: #828282;
+    font-size: 0.28rem;
+}
+.screenmask .screen .top .option ul{
+    width:100%;
+    height:auto;
+    overflow: hidden;
+}
+.screenmask .screen .top .option ul li{
+    width: 30%;
+    margin: 0.2rem 0;
+    margin-right: 5%;
+    font-size: 0.24rem;
+    float: left;
+    border:1px solid #c88d6d;
+    text-align: center;
+    height:0.55rem;
+    line-height:0.55rem;
+    color: #c88d6d;
+    background: #fff;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.screenmask .screen .top .option.series li{
+    width: 45%;
+}
+.screenmask .screen .top .option.series ul li:nth-child(3n){
+    margin-right: 5%;
+}
+.screenmask .screen .top .option.series ul li:nth-child(2n){
+    margin-right: 0;
+    margin-left: 5%;
+}
+.screenmask .screen .top .option ul li:nth-child(3n){
+    margin-right: 0;
+}
+.screenmask .screen .top .option ul li.active{
+    color: #fff;
+    background: #c88d6d;
+}
+.screenmask .screen .bottom{
+    width:100%;
+    height:0.8rem;
+}
+.screenmask .screen .bottom span{
+    width:45%;
+    height:0.8rem;
+    line-height: 0.8rem;
+    float: left;
+    text-align: center;
+    color: #fff;
+    font-size: 0.28rem;
+}
+.screenmask .screen .bottom .reset{
+    margin-right: 5%;
+    background: #dedede;
+    color: #000;
+}
+.screenmask .screen .bottom .complete{
+    background: #c88d6d;
+    color: #fff;
+    margin-left: 5%;
+}
+.mescroll-totop{
+    bottom:1.5rem;
+}

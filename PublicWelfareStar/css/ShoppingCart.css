@@ -1,0 +1,363 @@
+section{
+	display: flex;
+	display: -webkit-flex;
+	flex-direction: column;
+	-webkit-flex-direction: column;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	padding: 0rem 0.2rem 0.35rem;
+	background: #fff;
+}
+section ul{
+	width: 100%;
+	flex: 1;
+	-webkit-flex: 1;
+	overflow: scroll;
+}
+section ul li{
+	width: 100%;
+	height: auto;
+	margin-bottom:0.1rem;
+	background: #f5f5f5;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    padding: 0.1rem;
+	overflow: hidden;
+}
+section ul .remove{
+	transition: 0.5s cubic-bezier(.77,0,.175,1);
+	-webkit-transform: 0.5s cubic-bezier(.77,0,.175,1);
+	transform: translateX(-100%);
+	-webkit-transform: translateX(-100%);
+}
+section ul li .top{
+	width: 100%;
+	height: 2.2rem;
+	background: #fff;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	padding: 0.35rem 0 0.35rem;
+	display: flex;
+	display: -webkit-flex;
+	flex-direction: row;
+	-webkit-flex-direction: row;
+	position: relative;
+}
+section ul li .top .goremove{
+	position: absolute;
+	top:0;
+	right:-1.5rem;
+	width:1.4rem;
+	height:2.2rem;
+	background: #c88d6d;
+	color: #fff;
+	text-align: center;
+	line-height:2.2rem;
+}
+section ul li .top .T_L{
+	height: 100%;
+	width: 0.66rem;
+}
+section ul li .top .T_L span{
+	display: block;
+	width: 0.36rem;
+	height: 0.36rem;
+	margin: 0.57rem 0;
+	border-radius: 50%;
+	position: relative;
+}
+section ul li .top .T_L span img{
+	width:100%;
+	height:100%;
+}
+section ul li .top .T_L span:before{
+	content: " ";
+	display: block;
+	height: 1rem;
+	width: 0.4rem;
+	position: absolute;
+	left: -0.2rem;
+	top: -0.3rem;
+}
+section ul li .top .T_L span:after{
+	content: " ";
+	display: block;
+	height: 1rem;
+	width: 0.4rem;
+	position: absolute;
+	right: -0.2rem;
+	top: -0.3rem;
+}
+section ul li .top .T_C{
+	width:1.5rem;
+	height:1.5rem;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	border:1px solid #ccc;
+	border-radius: 8px;
+	overflow: hidden;
+}
+section ul li .top .T_C img{
+	display: block;
+	width:100%;
+	height: 100%;
+	margin: 0 auto;
+	overflow: hidden;
+}
+section ul li .top .T_R{
+	height: 100%;
+	flex: 1;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	padding: 0 0.25rem;
+	min-width: 0;
+}
+section ul li .top .T_R .title{
+	color: #333;
+	font-size: 0.26rem;
+	height: 0.9rem;
+	position: relative;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	padding-right:1.2rem;
+}
+/* 详情按钮*/
+.top .T_R .title i{
+	float: right;
+	width:0.8rem;
+	text-align: center;
+	line-height:0.48rem;
+	border: 1px solid #c88d6d;
+	/*border-radius: 5px;*/
+	font-size: 0.24rem;
+	color: #c88d6d;
+	letter-spacing: 0;
+	position: absolute;
+	right:0;
+	top:0;
+}
+section ul li .top .T_R .price{
+	height: 0.6rem;
+	line-height:0.7rem;
+	font-size: 0.24rem;
+	color: #c88d6d;
+}
+section ul li .top .T_R .price .num{
+	width: 2.4rem;
+	height: 0.6rem;
+	float: right;
+	color: #000;
+}
+section ul li .top .T_R .price .num span{
+	float: left;
+	height: 0.6rem;
+	width: 0.6rem;
+	text-align: center;
+	line-height: 0.6rem;
+	position: relative;
+	background: #c88d6d;
+	color: #fff;
+}
+section ul li .top .T_R .price .num span.highlight{
+	color: #dddddd;
+}
+section ul li .top .T_R .price .num span:before{
+	content: " ";
+	display: block;
+	height: 0.6rem;
+	width: 0.2rem;
+	position: absolute;
+	left: -0.2rem;
+	top: 0;
+}
+section ul li .top .T_R .price .num span:after{
+	content: " ";
+	display: block;
+	height: 0.6rem;
+	width: 0.2rem;
+	position: absolute;
+	right: -0.2rem;
+	top: 0;
+}
+section ul li .top .T_R .price .num #changenum{
+	border-radius: 0px;
+	width: 1.2rem;
+	height: 0.6rem;
+	float: left;
+	background: none;
+	color: #000;
+	text-align: center;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	border-top: 1px solid #f3f3f3;
+	border-bottom: 1px solid #f3f3f3;
+	background: #fff;
+}
+section ul li .bottom{
+	display: none;
+	width: 100%;
+	height: auto;
+}
+section ul li .bottom{
+	display: none;
+	width: 100%;
+	height: auto;
+	border-top: 1px solid #e5e5e5;
+	color: #333;
+	padding:0.3rem 0;
+}
+section ul li .bottom p{
+	height: 0.35rem;
+	line-height: 0.35rem;
+	margin-bottom:0.12rem;
+}
+section ul li .bottom p:last-child{
+	margin-bottom:0;
+}
+section ul li .bottom p span{
+	display: block;
+	float: left;
+}
+section ul li .bottom p span img{
+	vertical-align: middle;
+	height:0.35rem;
+	margin-top:-3px;
+	margin-right:0.1rem;
+}
+section ul li .bottom p .left{
+	height: 0.35rem;
+	line-height: 0.35rem;
+	font-size: 0.24rem;
+	color: #c88d6d;
+}
+section ul li .bottom p .right{
+	height: 0.35rem;
+	line-height: 0.35rem;
+	display:block;
+	/*white-space:nowrap; */
+	/*overflow:hidden; */
+	/*text-overflow:ellipsis;*/
+	color: #BCC0C4;
+	font-size: 0.24rem;
+}
+
+.allright{
+	width: 100%;
+	height: 0.9rem;
+	background: #fff;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	padding-left:0.2rem ;
+	display: flex;
+	display: -webkit-flex;
+	flex-direction: row;
+	-webkit-flex-direction: row;
+	box-shadow: 0 -1px 0.06rem #e5e5e5;
+}
+.allright .left{
+	float: left;
+	position: relative;
+}
+.allright .left img{
+	width:100%;
+	height:100%;
+}
+.allright .left:before{
+	content: " ";
+	display: block;
+	height: 0.5rem;
+	width: 0.2rem;
+	position: absolute;
+	left: -0.2rem;
+	top: 0;
+}
+.allright .left:after{
+	content: " ";
+	display: block;
+	height: 0.5rem;
+	width: 0.2rem;
+	position: absolute;
+	right: -0.2rem;
+	top: 0;
+}
+.allright .left span{
+	color: #000;
+	float: left;
+	display: block;
+}
+.allright .left span:nth-child(1){
+	width: 0.36rem;
+	height: 0.36rem;
+	margin: 0.27rem 0;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 0.4rem;
+}
+.allright .left span:nth-child(2){
+	margin-left:0.3rem;
+	text-align: center;
+	height: 0.9rem;
+	line-height: 0.9rem;
+	font-size: 0.28rem;
+	color: #333333;
+	letter-spacing: 0.47px;
+}
+.allright .center{
+	height: 100%;
+	flex: 1;
+	color: #fff;
+	line-height: 1.1rem;
+	
+}
+.allright .center .price{
+	width: 100%;
+	height:0.9rem;
+	line-height:0.9rem;
+	font-size: 0.28rem;
+	overflow: hidden;
+	text-align: right;
+	color: #c88d6d;
+	padding-right:0.3rem;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+.allright .right{
+	float: right;
+	height: 0.9rem;
+	width: 1.8rem;
+	text-align: center;
+	line-height: 0.9rem;
+	background: #DDDDDD;
+	font-size:0.3rem;
+	color: #FFFFFF;
+	letter-spacing: 0.5px;
+}
+/*购物车去选购按钮*/
+.goBuyAgain{
+	line-height:1.2rem;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	padding:0 0.3rem;
+	overflow: hidden;
+}
+
+.goBuyAgain .spa1{
+	display: block;
+	height:1.2rem;
+	line-height:1.2rem;
+	font-size:0.26rem;
+	color: #c88d6d;
+	float: left;
+}
+.goBuyAgain .spa2{
+	float: right;
+	width:1.5rem;
+	height:0.6rem;
+	font-size:0.26rem;
+	background: #C88D6D;
+	color: #fff;
+	text-align: center;
+	line-height: 0.6rem;
+	margin-top:0.3rem;
+	margin-bottom:0;
+}

@@ -1,0 +1,1119 @@
+@font-face {
+  font-family: 'iconfont';  /* project id 339833 */
+  src: url('../iconfont/iconfont.eot');
+  src: url('../iconfont/iconfont.eot?#iefix') format('embedded-opentype'),
+  url('../iconfont/iconfont.woff') format('woff'),
+  url('../iconfont/iconfont.ttf') format('truetype'),
+  url('../iconfont/iconfont.svg#iconfont') format('svg');
+}
+.iconfont{
+    font-family:"iconfont" !important;
+    font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+/*滚动条样式*/
+::-webkit-scrollbar
+{
+	display:none;
+    width: 0;
+    height: 0;
+}
+* {
+	margin: 0;
+	padding: 0;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	border-radius: 0;
+	font-size: 0.24rem;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);/*取消高亮*/
+	-webkit-touch-callout:none;  /*系统默认菜单被禁用*/  
+	-webkit-user-select:none; /*webkit浏览器*/
+	-moz-user-select:none;/*火狐*/
+	-ms-user-select:none; /*IE10*/
+	user-select:none;
+	-webkit-overflow-scrolling: touch;
+	overflow-scrolling: touch;
+	/*backface-visibility: hidden;*/
+	/*-webkit-backface-visibility: hidden;*/
+}
+body,html{
+	width: 100%;
+	height: 100%;
+	position:relative;  
+  overflow:hidden;  
+}
+.detail_comment{
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+body{
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	display: flex;
+	display: -webkit-flex;
+	flex-direction:column ;
+	-webkit-flex-direction: column;
+	cursor:pointer;
+}
+i{
+	font-style: normal;
+}
+ul,li{
+	outline: none;
+	list-style-type: none;
+}
+input{
+	border: none;
+	outline: none;
+	padding: 0;
+	margin: 0;
+	background: none;
+	-webkit-user-select:auto; /*webkit浏览器*/  
+	user-select:auto;
+	-o-user-select:auto;
+	-ms-user-select:auto; 
+}
+input,select,button { 
+	-webkit-appearance:none;
+	appearance: none;
+	border: 0;
+	background: none;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);    
+    -webkit-user-modify: read-write-plaintext-only;
+ 	outline: 0;
+}
+textarea{
+	background: none;
+	border: none;
+	outline: 0;
+	-webkit-user-select:auto; /*webkit浏览器*/  
+	user-select:auto;
+	-o-user-select:auto;
+	-ms-user-select:auto; 
+}
+a{
+	text-decoration: none;
+}
+/*头部*/
+header{
+	width: 100%;
+	height: 0.9rem;
+	background: #fff;
+	box-shadow: 0 1px 0.06rem #e5e5e5;
+	position: relative;
+}
+header p{
+	width: 100%;
+	background: #fff;
+	text-align: center;
+	line-height: 0.9rem;
+	height: 0.9rem;
+	font-size: 0.38rem;
+	font-weight:bold;
+}
+header span{
+	min-width:0.9rem;
+	height:100%;
+	line-height:0.9rem;
+	text-align: center;
+	vertical-align: middle;
+	font-size: 0.32rem;
+	color: #666666;
+	letter-spacing: 0.53px;
+}
+header span img{
+	height:0.36rem;
+	vertical-align: middle;
+	margin-top:-3px;
+}
+header .left{
+	position: absolute;
+	top:0;
+	left:0;
+	font-weight: bold;
+	font-size: 0.4rem;
+	color: #000;
+}
+header .right{
+	position: absolute;
+	top:0;
+	right:0;
+	margin-right:0.2rem;
+	font-size: 0.26rem;
+	color: #c88d6d;
+}
+/*section*/
+section{
+	width: 100%;
+	flex: 1;
+	-webkit-flex: 1;
+	background: #fff;
+}
+/*footer*/
+/*footer{*/
+	/*width: 100%;*/
+	/*height: 1rem;*/
+	/*background: #fff;*/
+	/*border-top:1px solid #e5e5e5;*/
+/*}*/
+/*footer ul{*/
+	/*width: 100%;*/
+	/*height: 1rem;*/
+	/*background: #fff;*/
+/*}*/
+/*footer ul dl{*/
+	/*width: 20%;*/
+	/*height: 1rem;*/
+	/*float: left;*/
+/*}*/
+/*footer ul dl dt{*/
+	/*width: 100%;*/
+	/*height: 0.68rem;*/
+	/*box-sizing: border-box;*/
+	/*-webkit-box-sizing: border-box;*/
+	/*padding-top:0.15rem;*/
+/*}*/
+/*footer ul dl dt img{*/
+	/*display: block;*/
+	/*height: 0.48rem;*/
+	/*margin: 0 auto;*/
+/*}*/
+/*footer ul dl:nth-child(3) dt{*/
+	/*position: relative;*/
+/*}*/
+/*footer ul dl:nth-child(3) dt img{*/
+	/*height:1rem;*/
+	/*position: absolute;*/
+	/*left:50%;*/
+	/*margin-left:-0.5rem;*/
+	/*bottom:0;*/
+	/*z-index: 9;*/
+/*}*/
+/*footer ul dl dd{*/
+	/*width: 100%;*/
+	/*height: 0.32rem;*/
+	/*text-align: center;*/
+	/*color: #828282;*/
+	/*font-size: 0.24rem;*/
+/*}*/
+/*footer ul .active dd{*/
+	/*color: #e61c64;*/
+/*}*/
+/*confirm*/
+.show_info_contain {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	margin-left: -35%;
+	margin-top: -1.25rem;
+	background-color: #fff;
+	width: 70%;
+	height: 2.5rem;
+	box-shadow: 0 1px 13px 0 rgba(111,111,111,0.20);
+	border-radius: 5px;
+	z-index: 999;
+}
+.show_info_content {
+	height: 1.5rem;
+	line-height: 1.5rem;
+	font-size: 0.32rem;
+	text-align: center;
+}
+.show_info_content .InviteCode{
+	width:100%;
+	height:0.5rem;
+	line-height: 0.5rem;
+	margin:0.5rem 0;
+	text-indent: 0.56rem;
+	font-size: 0.28rem;
+}
+.show_info_contain .tr{
+	overflow: hidden;
+}
+.show_info_contain .btn {
+	float: left;
+	width: 50%;
+	height: 1rem;
+	line-height: 1rem;
+	text-align: center;
+	/*border-top: 1px solid #D2A597;*/
+	color: #C88D6D;
+	font-size: 0.28rem;
+}
+.show_info_contain .btn1{
+	/*border-right: 1px solid #D2A597;*/
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	color: #828282;
+}
+.btn1:hover{
+  /*background-color: gray;*/
+  /*color:#fff;*/
+}
+.btn2:hover{
+  /*background-color: gray;*/
+  /*color:#fff;*/
+}
+/*ajax加载中*/
+.loading{
+	width:100%;
+    color: #333;
+    text-align: center;
+    height: 0.8rem;
+    line-height: 0.8rem;
+    font-size: 0.28rem;
+}
+/*ajax无数据*/
+.dingIcon{
+    width:100%;
+    height:2.36rem;
+    margin-top:1rem;
+}
+.dingIcon img{
+	display: block;
+	height:100%;
+	margin: 0 auto;
+}
+.dingTit{
+	font-size: 0.32rem;
+	color: #4C3A2C;
+	letter-spacing: 0;
+    width: 100%;
+    text-align: center;
+    margin-top:0.5rem;
+}
+.gobuy{
+	display: block;
+	background: #C88D6D;
+	/*box-shadow: 0 2px 4px 0 rgba(111,111,111,0.50);*/
+	border-radius: 5px;
+	font-size: 0.28rem;
+	color: #fff;
+	text-align: center;
+	height:0.7rem;
+	width:2rem;
+	line-height: 0.7rem;
+	margin:0.7rem auto;
+}
+/*支付*/
+.paybj{
+	width:100%;
+	height:100%;
+	position: fixed;
+	left:0;
+	top:0;
+	background: rgba(0,0,0,0.30);
+	display: flex;
+	display: -webkit-flex;
+	justify-content: center;
+	-webkit-justify-content: center;
+	align-items: center;
+	-webkit-align-items: center;
+}
+.agreement{
+	position: relative;
+	width: 6.5rem;
+	/*height: 10rem;*/
+	background: #fff;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	padding: 0 0.4rem 0.6rem;
+}
+.agreement .am_remove{
+	width: 0.6rem;
+	height: 0.6rem;
+	position: absolute;
+	right: 0;
+	top: 0;
+	background: url("../img/common/empty.png") center center no-repeat;
+	background-size: 0.25rem 0.25rem;
+}
+.agreement .am_title{
+	width: 100%;
+	height: 1rem;
+	line-height: 1.5rem;
+	color: #c88d6d;
+	text-align: center;
+	font-size: 0.28rem;
+}
+.agreement h2{
+	width: 100%;
+	height: 0.5rem;
+}
+.agreement .am_content{
+	width: 100%;
+	max-height:6.5rem;
+	overflow: scroll;
+}
+.agreement .am_content p{
+	line-height: 0.36rem;
+	font-size: 0.24rem;
+	color: #010101;
+}
+.agreement .am_content p:first-child{
+	text-indent: 0.48rem;
+}
+.agreement .am_content p:last-child{
+	text-indent: 0.24rem;
+	margin-top: 0.35rem;
+	margin-bottom: 0.4rem;
+}
+.agreement .am_agree{
+	width: 100%;
+	height: 0.3rem;
+	line-height: 0.3rem;
+	font-size: 0.24rem;
+	margin-bottom: 0.4rem;
+	text-align: center;
+	overflow: hidden;
+	display: flex;
+	display: -webkit-flex;
+	flex-direction: row;
+	-webkit-flex-direction: row;
+	justify-content: center;
+	-webkit-justify-content: center;
+	align-items: center;
+	-webkit-align-items: center;
+}
+.agreement .am_agree span{
+	display: inline-block;
+	width: 0.3rem;
+	height: 0.3rem;
+	margin-right: 0.2rem;
+}
+.agreement .am_agree span.false{
+	background:#ccc url("../img/common/whitegou.png") center center no-repeat;
+	background-size: 80%;
+}
+.agreement .am_agree span.true{
+	background:#C88D6D url("../img/common/whitegou.png") center center no-repeat;
+	background-size: 80%;
+}
+.agreement .am_agree i{
+	display: inline-block;
+	height: 0.3rem;
+	line-height: 0.3rem;
+}
+.agreement .am_agree_btn{
+	display: block;
+	background: #c88d6d;
+	width: 3.2rem;
+	height: 0.7rem;
+	text-align: center;
+	line-height: 0.7rem;
+	color: #fff;
+	font-size: 0.28rem;
+	margin: 0 auto;
+}
+.agreement .am_agree_btn.false{
+	background: #ccc;
+}
+.payWin{
+	display: none;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width:100%;
+	height:6.8rem;
+	z-index: 2;
+	background: #fff;
+}
+.payWin li{
+	display: block;
+	height:1rem;
+	line-height: 1rem;
+	padding: 0 0.3rem;
+	overflow: hidden;
+	border-bottom: 1px solid #f5f5f5;
+	color: #333;
+	font-size: 0.24rem;
+}
+.winTit{
+	text-align: center;
+}
+.winTit i{
+	float: right;
+	font-size:0.33rem;
+	color: #dddddd;
+}
+.payWin li b{
+	display: block;
+	width:0.5rem;
+	height:0.5rem;
+	float: left;
+	margin:0.25rem 0.2rem 0.25rem 0;
+}
+.payWin li span{
+	float: right;
+	width:0.36rem;
+	height:0.36rem;
+	margin:0.32rem 0;
+	background: url("../img/common/check.png") center center;
+	background-size: 100%;
+	border-radius: 50%;
+	overflow: hidden;
+}
+.payWin .alipay{
+	background: #F1F1F1;
+}
+.payWin .alipay b{
+	background: url("../img/common/ALIPAY.png") center center;
+	background-size: 100%;
+}
+.payWin .wechatpay b{
+	background: url("../img/common/WXPAY.png") center center;
+	background-size: 100%;
+}
+.payWin .downpay b{
+	background: url("../img/common/xianxia.png") center center;
+	background-size: 100%;
+}
+.payWin .gopaynow{
+	padding:0;
+	width:100%;
+	border:none;
+	background: #c88d6d;
+	font-size: 0.36rem;
+	text-align: center;
+	line-height:1rem;
+	color: #FFFFFF;
+	letter-spacing: 0;
+	position: absolute;
+	bottom:0;
+	left:0;
+}
+.payWin li span{
+	float:right;
+	font-size:0.45rem;
+}
+.firmPay a{
+	display: block;
+	width:7rem;
+	height:0.75rem;
+	border: 1px solid #d7d7d7;
+	text-align: center;
+	line-height: 0.75rem;
+	border-radius: 0.35rem;
+	margin: 1.5rem auto 0;
+	color: #fff;
+	font-size:0.3rem;
+}
+/*分享*/
+.sharediv{
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	background: rgba(0,0,0,0.60);
+	display: none;
+}
+.sharediv .remove{
+	display: block;
+	margin:1rem auto;
+	margin-left:-0.3rem;
+	width:0.6rem;
+	height:0.6rem;
+	border-radius: 50%;
+	position: absolute;
+	left:50%;
+	bottom:0;
+}
+.sharediv .remove img{
+	width:100%;
+}
+
+.sharediv ul{
+	width: 100%;
+	height: auto;
+	overflow: hidden;
+	position: absolute;
+	left:0;
+	bottom:2.6rem;
+	text-align: center;
+}
+.sharediv ul dl{
+	width: 23%;
+	height: 1.6rem;
+	margin-bottom:0.2rem;
+	display: inline-block;
+}
+.sharediv ul dl dt{
+	width: 100%;
+	height: 1rem;
+}
+.sharediv ul dl dt img{
+	display: block;
+	height: 1rem;
+	margin: 0 auto;
+}
+.sharediv ul dl dd{
+	width: 100%;
+	height: 0.6rem;
+	line-height: 0.6rem;
+	color: #fff;
+	text-align: center;
+}
+/*登录*/
+.loginbox{
+	width:100%;
+	height:100%;
+	position: fixed;
+	right:-100%;
+	top:0;
+	background: #fff;
+	z-index: 10000;
+	transition:.4s;
+	-webkit-transition:.4s;
+	/*background: url("../img/bj/aboutBj.png") top center no-repeat;*/
+	/*background: #c88d6d;*/
+	background-size:cover;
+	display: flex;
+	display: -webkit-flex;
+	flex-direction: column;
+	-webkit-flex-direction: column;
+}
+.loginbox0 {
+	right:0;
+}
+.loginbox .remove{
+	position: absolute;
+	left:0;
+	top:0;
+	width:0.9rem;
+	height:0.9rem;
+}
+.loginbox .remove img{
+	display: block;
+	height:0.5rem;
+	margin:0.2rem auto;
+}
+.loginbox .logintop{
+	width:100%;
+	flex:1;
+	-webkit-flex: 1;
+}
+.loginbox .logintop .title{
+	width: 100%;
+	height: 1.5rem;
+	font-size: 0.4rem;
+	text-align: center;
+	line-height: 1.8rem;
+	color: #FFFFFF;
+	letter-spacing: 0;
+
+}
+.loginbox .logintop .logo{
+	display: block;
+	width:1.8rem;
+	margin:1.1rem auto 0.7rem;
+}
+.loginbox .logintop .word{
+	display: block;
+	height:0.44rem;
+	margin:0 auto;
+}
+.loginbox .phonelogomask{
+	display: none;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.3);
+}
+.loginbox .phonelogo{
+	position: absolute;
+	left:50%;
+	margin-left:-3rem;
+	top:50%;
+	margin-top:-2.15rem;
+	width:6rem;
+	height:4.3rem;
+	background: #FFFFFF;
+	/*box-shadow: 2px 2px 13px 0 #000000;*/
+	border-radius: 5px;
+	z-index: 998;
+}
+.loginbox .phonelogo .phonelogotop{
+	width:100%;
+	height:3.5rem;
+	padding:0.8rem 0.35rem 0.7rem;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	position: relative;
+}
+.removeTan{
+	position: absolute;
+	right:0;
+	top: 0;
+	display: block;
+	width: 0.4rem;
+	padding: 0.2rem 0.25rem 0.1rem;
+}
+.loginbox .phonelogo .phonelogotop p{
+	width:5.3rem;
+	height:0.8rem;
+	background: #F5F5F5;
+	border-radius: 5px;
+	display: flex;
+	display: -webkit-flex;
+	flex-direction: row;
+	-webkit-flex-direction: row;
+	overflow: hidden;
+}
+.loginbox .phonelogo .phonelogotop p.phone1{
+	margin-bottom: 0.5rem;
+}
+.loginbox .phonelogo .phonelogotop p span{
+	display: block;
+	width:0.7rem;
+	height:0.8rem;
+}
+.loginbox .phonelogo .phonelogotop p:nth-child(1) span:nth-child(1) img{
+	display: block;
+	height:0.36rem;
+	margin: 0.22rem auto;
+}
+.loginbox .phonelogo .phonelogotop p span img{
+	display: block;
+	height:0.24rem;
+	margin: 0.28rem auto;
+}
+.loginbox .phonelogo .phonelogotop input::input-placeholder{
+	color: #000;
+	opacity:0.3;
+}
+.loginbox .phonelogo .phonelogotop input::-webkit-input-placeholder{
+	color: #000;
+	opacity:0.3;
+}
+.loginbox .phonelogo .phonelogotop input[type=number]{
+	color: #8D7064;
+	flex:1;
+	-webkit-flex: 1;
+	font-size: 0.24rem;
+}
+.loginbox .phonelogo .phonelogotop input[type=button]{
+	width:1.6rem;
+	height:0.8rem;
+	line-height:0.8rem;
+	text-align: center;
+	background: #c88d6d;
+	color: #FFFFFF;
+	font-size: 0.24rem;
+}
+.loginbox .phonelogo .phonelogotop p:first-child{
+	margin-bottom:0.4rem;
+}
+.loginbox .phonelogo .phonebtn{
+	width:100%;
+	height:0.8rem;
+	line-height:0.8rem;
+	text-align: center;
+	font-size: 0.4rem;
+	background: #c88d6d;
+	color: #FFFFFF;
+	letter-spacing: 0;
+}
+.loginbox .loginbottom{
+	width:100%;
+	height:5rem;
+}
+.loginbox .loginbottom .othertitle{
+	width:100%;
+	text-align: center;
+	line-height:0.7rem;
+	height:0.7rem;
+	font-size: 0.36rem;
+	color: #000;
+	letter-spacing: 0;
+	margin: 0 auto;
+}
+.loginbox .loginbottom .otherlogin{
+	width:6rem;
+	height:2.1rem;
+	overflow: hidden;
+	margin: 0.5rem auto 0;
+	text-align: center;
+}
+
+.loginbox .loginbottom .otherlogin dl{
+	width:1.5rem;
+	height:100%;
+	display: inline-block;
+	margin:0 0.25rem;
+}
+.loginbox .loginbottom .otherlogin dl dt{
+	display: block;
+	width:1.5rem;
+	height:1.2rem;
+}
+.loginbox .loginbottom .otherlogin dl dt img{
+	display: block;
+	width:1.2rem;
+	height:1.2rem;
+	margin:0 auto;
+}
+.loginbox .loginbottom .otherlogin dl dd{
+	display: block;
+	width:1.5rem;
+	height:0.9rem;
+	line-height:0.9rem;
+	font-size: 0.26rem;
+	color: #FFFFFF;
+	text-align: center;
+}
+/*侧边栏*/
+.sidebarmask{
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	left: -100%;
+	top: 0;
+	background: rgba(0,0,0,0.5);
+	z-index: 9999;
+	transition: all 0.2s ease-in;
+	-webkit-transition: all 0.2s ease-in;
+}
+.sidebarmask.active{
+    transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+
+	transition: all 0.25s ease-in;
+	-webkit-transition: all 0.25s ease-in;
+}
+.sidebarmask .sidebar{
+    width: 50%;
+    height: 100%;
+    background: #fff;
+    position: relative;
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: column;
+    -webkit-flex-direction: column;
+}
+.sidebar .remove{
+    position: absolute;
+    right: 0.3rem;
+    top: 0.3rem;
+    width: 0.45rem;
+    height: 0.45rem;
+    font-size: 0.45rem;
+    line-height: 0.45rem;
+    text-align: center;
+    /*background: url("../img/common/empty.png") center center no-repeat;*/
+    background-size: 100%;
+}
+.sidebar .top{
+    width: 100%;
+}
+.sidebar .top .head_img{
+    display: block;
+    width: 1.4rem;
+    height: 1.4rem;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0.8rem auto 0;
+}
+.sidebar .top .nickname{
+	width: 80%;
+	line-height: 0.45rem;
+	text-align: center;
+	font-size: 0.26rem;
+	color: #000;
+	margin: 0.1rem auto;
+}
+.sidebar .top .integral{
+    width: 100%;
+    height: 0.5rem;
+	line-height: 0.5rem;
+    text-align: center;
+    font-size: 0.24rem;
+    color: #ce9578;
+}
+.sidebar .top .signbtn{
+	display: none;
+    width: 1.8rem;
+    height: 0.5rem;
+    line-height: 0.5rem;
+    text-align: center;
+    font-size: 0.28rem;
+    color: #fff;
+    background: #ce9578;
+    margin: 0 auto;
+}
+.user .sign.off{
+    background: #ccc;
+}
+.sidebar .center{
+    flex: 1;
+    -webkit-flex: 1;
+    width: 100%;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+}
+.sidebar .center ul{
+    width: 2.5rem;
+    margin: 0 auto;
+}
+.sidebar .center li{
+    height: 1rem;
+    line-height: 1rem;
+    width: 2.5rem;
+    /*text-align: center;*/
+    margin: 0 auto;
+    border-bottom: 1px solid #b4b4b4;
+	display: flex;
+	display: -webkit-flex;
+	flex-direction: row;
+	-webkit-flex-direction: row;
+	align-items: center;
+	-webkit-align-items: center;
+	/*justify-content: center;*/
+	/*-webkit-justify-content: center;*/
+
+}
+.sidebar .center li span{
+	display: inline-block;
+	width: 0.5rem;
+	height: 0.75rem;
+	margin-right: 0.2rem;
+	margin-left: 0.3rem;
+}
+.sidebar .center li.index span{
+	background: url("../img/index/index.png") center center no-repeat;
+	background-size: 80%;
+}
+.sidebar .center li.ShoppingMall span{
+	background: url("../img/index/ShoppingMall.png") center center no-repeat;
+	background-size: 80%;
+}
+.sidebar .center li.made span{
+	background: url("../img/index/made.png") center center no-repeat;
+	background-size: 80%;
+}
+.sidebar .center li.activity span{
+	background: url("../img/index/activity.png") center center no-repeat;
+	background-size: 80%;
+}
+.sidebar .center li.personCenter span{
+	background: url("../img/index/personCenter.png") center center no-repeat;
+	background-size: 75%;
+}
+.sidebar .center li.ShoppingCart span{
+	background: url("../img/index/ShoppingCart.png") center center no-repeat;
+	background-size: 80%;
+}
+.sidebar .center li.InvitingFriends span{
+	background: url("../img/index/InvitingFriends.png") center center no-repeat;
+	background-size: 80%;
+}
+.sidebar .center li.personSetting span{
+	background: url("../img/index/personSetting.png") center center no-repeat;
+	background-size: 80%;
+}
+.sidebar .center li:last-child{
+    border: none;
+}
+.sidebar .bottom{
+    height: 1rem;
+    width: 100%;
+}
+.sidebar .bottom .exit{
+    width: 2.5rem;
+    height: 0.5rem;
+    line-height: 0.5rem;
+    text-align: center;
+    background: #dedede;
+    color: #000;
+    margin: 0 auto;
+}
+.sidebar .bottom .login{
+	width: 2.5rem;
+	height: 0.5rem;
+	line-height: 0.5rem;
+	text-align: center;
+	background: #c88d6d;
+	color: #fff;
+	margin: 0 auto;
+}
+/*签到*/
+/*sign*/
+.signmask{
+    width:100%;
+    height: 100%;
+    background: rgba(0,0,0,0.30);
+    position: fixed;
+    left:0;
+    top:0;
+    z-index: 10000;
+}
+.signbj{
+    width:6rem;
+    height:4.2rem;
+    background: url("../img/bj/signbj.png");
+    background-size: 100%;
+    position: absolute;
+    left:50%;
+    top:50%;
+    margin-top:-2.1rem;
+    margin-left:-3rem;
+}
+.signcontent{
+    width:4.88rem;
+    height:2.35rem;
+    margin:1.79rem auto 0;
+    overflow: hidden;
+}
+.signcontent .signcontent1{
+    width:4.88rem;
+    height:2.35rem;
+}
+.signcontent .signcontent1 .p1{
+    width:100%;
+    height:0.8rem;
+    line-height:0.8rem;
+    text-align: center;
+    color: #8D7064;
+    font-size: 0.24rem;
+}
+.signcontent .signcontent1 .p2{
+    width:100%;
+    height:0.4rem;
+    box-sizing: border-box;
+    padding: 0 0.3rem;
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: row;
+    -webkit-flex-direction: row;
+    justify-content: space-around;
+    position: relative;
+}
+.signcontent .signcontent1 .p2 .line{
+    width:3.88rem;
+    height:2px;
+    position: absolute;
+    left:50%;
+    margin-left:-1.94rem;
+    top:50%;
+    margin-top:-1px;
+    background: #d2a597;
+}
+.signcontent .signcontent1 .p2 span{
+    width:0.4rem;
+    height:0.4rem;
+    text-align: center;
+    line-height:0.38rem;
+    border:1px solid #d2a597;
+    border-radius: 50%;
+    background: #fff;
+    color: #000;
+    z-index:1;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+.signcontent .signcontent1 .p2 span.signspan{
+    background: #d2a597;
+    color: #fff;
+}
+.signcontent .signcontent1 .p3{
+    width:100%;
+    height:0.35rem;
+
+}
+
+.signcontent .signcontent1 .p4{
+    width:100%;
+    height:0.8rem;
+    line-height:0.8rem;
+    text-align: center;
+    font-size: 0.24rem;
+    color: #BCC0C4;
+    letter-spacing: 0;
+}
+
+.signcontent .signcontent2{
+    width:4.88rem;
+    height:2.35rem;
+}
+.signcontent .signcontent2 p{
+    margin-top:0.4rem;
+    width:100%;
+    font-size: 0.24rem;
+    color: #8D7064;
+    letter-spacing: 0;
+    line-height:0.36rem;
+    text-align: center;
+    height:1.4rem;
+}
+.signcontent .signcontent2 .btn{
+    display: block;
+    width:0.9rem;
+    height:0.4rem;
+    text-align: center;
+    line-height:0.4rem;
+    font-size: 0.24rem;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    background: #D2A597;
+    border-radius: 5px;
+    margin:0 auto;
+}
+.signmask .rule{
+    width:1.66rem;
+    height:0.4rem;
+    border-bottom:1px solid #DDDDDD;
+    font-size: 0.24rem;
+    color: #DDDDDD;
+    letter-spacing: 0;
+    position: absolute;
+    left:50%;
+    top:50%;
+    margin-left:-0.83rem;
+    margin-top:2.5rem;
+    text-align: center;
+    line-height:0.4rem;
+}
+.signmask .removesign{
+    width:0.4rem;
+    height:0.4rem;
+    position: absolute;
+    left:50%;
+    top:50%;
+    margin-left:-0.2rem;
+    margin-top:3.2rem;
+    border:1px solid #DDDDDD;
+    border-radius: 50%;
+    background: url("../img/common/empty.png") center center no-repeat;
+    background-size: 100%;
+}
+.signmask .removesign:before{
+    content: " ";
+    display: block;
+    height: 1rem;
+    width: 0.4rem;
+    position: absolute;
+    left: -0.2rem;
+    top: -0.3rem;
+}
+.signmask .removesign:after{
+    content: " ";
+    display: block;
+    height: 1rem;
+    width: 0.4rem;
+    position: absolute;
+    right: -0.2rem;
+    top: -0.3rem;
+}
+
+.signmask .removesign img{
+    display: block;
+    width:0.2rem;
+    margin:0.1rem;
+}

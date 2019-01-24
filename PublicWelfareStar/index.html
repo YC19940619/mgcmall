@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8"/>
+	<meta content="telephone=no" name="format-detection"/>
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<!-- uc强制竖屏 -->
+	<meta name="screen-orientation" content="portrait">
+	<!-- QQ强制竖屏 -->
+	<meta name="x5-orientation" content="portrait">
+	<link rel="stylesheet" type="text/css" href="common/swiper.min.css"/>
+	<link rel="stylesheet" type="text/css" href="common/common.css"/>
+	<link rel="stylesheet" type="text/css" href="css/index.css"/>
+	<script type="text/javascript" src="cordova.js"></script>
+	<script type="text/javascript" src="common/md5.js"></script>
+    <script type="text/javascript" src="common/jquery-2.2.1.min.js"></script>
+	<script type="text/javascript" src="common/rem.js"></script>
+	<script type="text/javascript" src="common/swiper.min.js"></script>
+	<script type="text/javascript" src="common/common.js"></script>
+	<script type="text/javascript" src="common/fastclick.js"></script>
+	<title>首页</title>
+	<script type="text/javascript">
+        //加载完取消启动页
+        document.addEventListener("deviceready", onDeviceReady, false);
+        function onDeviceReady() {
+            setTimeout(function(){
+                navigator.splashscreen.hide();
+                appintance.device()
+            },1000)
+            document.addEventListener("backbutton", onBackKeyDown, false);
+        }
+        function onBackKeyDown() {
+            if($(".indexguidehtml").hasClass("active")){
+                $(".indexguidehtml").removeClass("active")
+            }else{
+                new Toast({context:$('body'),message:('再点击一次退出!')}).show();
+                document.removeEventListener("backbutton", onBackKeyDown, false); // 注销返回键
+                document.addEventListener("backbutton", exitApp, false);//绑定退出事件
+            }
+            // 3秒后重新注册
+            var intervalID = window.setInterval(function() {
+                window.clearInterval(intervalID);
+                document.removeEventListener("backbutton", exitApp, false); // 注销返回键
+                document.addEventListener("backbutton", onBackKeyDown, false); // 返回键
+            }, 3000);
+        }
+        function exitApp(){
+            navigator.app.exitApp();
+        }
+	</script>
+</head>
+<body>
+	<header>
+		<span class="iconfont left sidebarbtn">&#xe604;</span>
+		<p>随我</p>
+	</header>
+	<section>
+		<div class="banner swiper-container swiper-container-horizontal">
+			<div class="swiper-wrapper list" >
+
+			</div>
+			<!-- Add Pagination -->
+			<div class="swiper-pagination"></div>
+		</div>
+		<ul class="optionTwo">
+			<li class="borderR madeAred"><img src="img/index/cusLeft.png" alt="" class="cusLeft" /><img src="img/index/cus.png" alt="" class="cus" /><img src="img/index/cusRight.png" alt="" class="cusLeft" /></li>
+			<li class="activity" style="display: none"><img src="img/index/activity.png" alt="" /><span>发现</span></li>
+		</ul>
+		<div class="seriesWrap1 seriesWrap">
+		</div>
+		<div class="seriesWrap2 seriesWrap">
+		</div>
+		<div class="seriesWrap3 seriesWrap">
+		</div>
+		<div class="seriesWrap4 seriesWrap">
+		</div>
+	</section>
+</body>
+<script type="text/javascript" src="js/index.js"></script>
+</html>

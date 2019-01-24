@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta content="telephone=no" name="format-detection"/>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" href="../common/common.css" />
+		<link rel="stylesheet" href="../common/swiper.min.css" />
+		<link rel="stylesheet" href="../css/wallet.css" />
+		<script type="text/javascript" src="../cordova.js"></script>
+		<script src="../common/jquery-2.2.1.min.js"></script>
+		<script src="../common/rem.js"></script>
+		<script src="../common/common.js"></script>
+		<script src="../common/swiper.min.js"></script>
+		<script type="text/javascript" src="../common/fastclick.js"></script>
+	</head>
+	<body>
+		<header>
+			<span class="left goback"><img src="../img/common/goback.png"></span>
+			<p>我的钱包</p>
+			<span class="explain right">说明</span>
+		</header>
+		<section>
+			<div class="top">
+				<p class="balance account">账户余额(元)</p>
+				<p class="money profit">0.00</p>
+				<div class="sale">销售额<i class="money total_money">￥5000</i><p class="Invitation">邀请好友</p></div>
+				<p class="tixian">提现</p>
+			</div>
+			<div class="wrap">
+				<ul>
+					<li><b>提现记录</b><i class="iconfont">&#xe62e;</i></li>
+					<li><b>交易密码设置</b><i class="iconfont">&#xe62e;</i></li>
+					<li><b>我的银行卡</b>
+						<div><i class="iconfont">&#xe62e;</i></div>
+					</li>
+				</ul>
+			</div>
+
+		</section>
+		<script>
+            FastClick.attach(document.body);
+            //返回按键
+            document.addEventListener("deviceready", onDeviceReady, false);
+            function onDeviceReady() {
+                document.addEventListener("backbutton",function(){
+                    window.location.href="personCenter.html";
+                }, false);
+            }
+            $(".goback").click(function () {
+                window.location.href = "personCenter.html"
+            })
+			$(".explain").click(function(){
+                window.location.href = "explain.html"
+			})
+			$('.wrap li').eq(0).click(function(){
+				window.location.href="presentrecord.html";
+			})
+            $('.wrap li').eq(1).click(function(){
+                window.location.href="password.html";
+            })
+            $('.wrap li').eq(2).click(function(){
+                window.location.href="mybank.html";
+            })
+			$('.tixian').click(function(){//提现
+				if(parseInt($(".profit").text())>=100){
+                    window.location.href="tixian.html";
+				}else{
+                    new Toast({context:$('body'),message:"提现金额至少100元"}).show();
+				}
+			})
+            $('.Invitation').click(function(){//邀请好友
+                window.location.href ="InvitingFriends.html"
+            })
+            var uid=localStorage.getItem('uid');
+            var sessionid=localStorage.getItem('sessionid');
+            $.ajax({//查询邀请码
+                type: "get",
+                url: getdealersys ,
+                async: true,
+                crossDomain: true,
+                data: {
+                    uid:uid,
+                    sessionid:sessionid
+                },
+                success: function(data) {
+                    console.log(data);
+                    if(data.status==0){
+                        var profit = data.profit;
+                        var total_money = data.total_money;
+                        localStorage.setItem("profit",profit);
+                        $(".profit").text(profit);//余额
+                        $(".total_money").text(total_money);//销售额
+                    }
+                },
+                error:function(){
+                    new Toast({context:$('body'),message:"网络故障"}).show();
+                }
+            })
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,240 @@
+section{
+	overflow: scroll;
+}
+section .address{
+	width: 100%;
+	height: auto;
+	background: #fff;
+	display: flex;
+	display: -webkit-flex;
+	flex-direction: row;
+	-webkit-flex-direction: row;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	padding:0.25rem 0.3rem 0.35rem;
+}
+section .address .left{
+	height:1rem;
+	width:0.8rem;
+}
+.total i{
+	float: right;
+}
+section .address .left img{
+	display: block;
+	margin:0.34rem auto;
+	height:0.32rem;
+}
+section .address .center{
+	height:auto;
+	flex:1;
+	-webkit-flex: 1;
+}
+section .address .center .receiver{
+	height:0.4rem;
+	line-height:0.4rem;
+	font-size: 0.26rem;
+	color: #333333;
+
+}
+
+section .address .center .detail_address{
+	height:auto;
+	line-height:0.34rem;
+	font-size: 0.24rem;
+	color: #999999;
+}
+section .address .right{
+	height:1rem;
+	width:0.5rem;
+}
+section .price span{
+	float: right;
+}
+section .address .right img{
+	display: block;
+	height:0.4rem;
+	margin:0.38rem auto;
+}
+section .content{
+	width:100%;
+	height:auto;
+	background: #fff;
+	margin-bottom:0.2rem;
+}
+section .content .pro{
+	height:auto;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	padding:0rem 0.15rem;
+	border: 0.1rem solid #f5f5f5;
+    margin: 0.2rem;
+}
+section .content .pro .top{
+	width:100%;
+	height:1.8rem;
+	display: flex;
+	display: -webkit-flex;
+	flex-direction: row;
+	-webkit-flex-direction: row;
+	border-bottom:1px solid #f5f5f5;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	padding:0.2rem 0;
+}
+section .content .pro .top .left{
+	width:1.4rem;
+	height:1.4rem;
+	margin-right:0.2rem;
+}
+section .content .pro .top .left img{
+	display: block;
+	width:100%;
+	height:100%;
+}
+section .content .pro .top .center{
+	flex:1;
+	-webkit-flex: 1;
+	height:1.4rem;
+}
+section .content .pro .top .center .proTit{
+	width:100%;
+	height:0.8rem;
+	font-weight: bold;
+	font-size: 0.24rem;
+	color: #0D0D0D;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	padding-right:1.2rem;
+	position: relative;
+}
+section .content .pro .top .center .proTit .detail{
+	font-weight: 500;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	float: right;
+	width:0.8rem;
+	height:0.5rem;
+	line-height:0.5rem;
+	text-align: center;
+	border: 1px solid #C88D6D;
+	font-size:0.24rem;
+	color: #C88D6D;
+	letter-spacing: 0;
+	position: absolute;
+	right:0;
+	top:0;
+}
+section .content .pro .top .center .price{
+	width:100%;
+	height:0.6rem;
+	line-height:0.6rem;
+}
+section .content .pro .bottom{
+	display: none;
+	width:100%;
+	height:auto;
+	padding: 0.3rem 0;
+}
+section .content .pro:nth-child(1) .bottom{
+	display: block;
+}
+.submitBtn .money i{
+	font-style: normal;
+	color: #000;
+}
+section .content .pro .bottom p{
+	height: 0.35rem;
+	line-height: 0.35rem;
+	margin-bottom:0.12rem;
+}
+section .content .pro .bottom p:last-child{
+	margin-bottom:0;
+}
+section .content .pro .bottom p span{
+	display: block;
+	float: left;
+}
+section .content .pro .bottom p span img{
+	vertical-align: middle;
+	height:0.35rem;
+	/*margin-top:-3px;*/
+	margin-right:0.1rem;
+}
+section .content .pro .bottom p .left{
+	height: 0.35rem;
+	line-height: 0.35rem;
+	font-size: 0.24rem;
+	color: #a2a2a2;
+}
+section .content .pro .bottom p .right {
+	height: 0.35rem;
+	line-height: 0.35rem;
+	display: block;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	color: #000;
+	font-size: 0.24rem;
+}
+section .totalPrice{
+	width:100%;
+	font-size: 0.26rem;
+	color: #666666;
+	letter-spacing: 0.43px;
+	background: #fff;
+	border-bottom:1px solid #f5f5f5;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	padding:0.65rem 0.24rem 0.35rem;
+}
+section .sendStyle{
+	width:100%;
+	height:0.9rem;
+	line-height:0.9rem;
+	font-size: 0.26rem;
+	color: #666666;
+	letter-spacing: 0.43px;
+	background: #fff;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	padding:0 0.24rem;
+	border-bottom: 1px solid #f5f5f5;
+}
+section i{
+	float: left;
+	color: #a2a2a2;
+}
+.send i{
+	float: right;
+}
+.submitBtn{
+	width:100%;
+	height:1rem;
+	position: absolute;
+    bottom: 0;
+    left: 0;
+	background: #fff;
+}
+.submitBtn .money{
+	float: left;
+	height:1rem;
+	line-height:1rem;
+	font-size: 0.28rem;
+	color: #C88D6D;
+	letter-spacing: 0.47px;
+	text-align: right;
+	text-indent: 0.3rem;
+}
+.submitBtn .btn{
+	display: inline-block;
+	width:1.6rem;
+	height:1rem;
+	line-height:1rem;
+	text-align: center;
+	font-size: 0.3rem;
+	color: #fff;
+	background: #C88D6D;
+	float: right;
+}
+

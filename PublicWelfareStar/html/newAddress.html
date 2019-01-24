@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<!-- uc强制竖屏 -->
+		<meta name="screen-orientation" content="portrait">
+		<!-- QQ强制竖屏 -->
+		<meta name="x5-orientation" content="portrait">
+		<meta content="telephone=no" name="format-detection" />
+		<title>收货地址</title>
+		<link rel="stylesheet" type="text/css" href="../common/mui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../common/mui.picker.min.css"/>
+		<link rel="stylesheet" href="../common/common.css" />
+		<link rel="stylesheet" href="../css/newAddress.css" />
+		<script type="text/javascript" src="../common/mui.min.js"></script>
+		<script type="text/javascript" src="../common/mui.picker.min.js"></script>
+		<script type="text/javascript" src="../js/addresschange.js"></script>
+		<script src="../common/jquery-2.2.1.min.js"></script>
+		<script src="../common/md5.js"></script>
+	</head>
+	<body>
+		<header>
+			<header>
+				<span class="left goback"><img src="../img/common/goback.png"></span>
+				<p>地址管理</p>
+				<span class="right save">保存</span>
+			</header>
+		</header>
+		<section>
+			<ul>
+				<li><span class="left">收货人</span><input maxlength="10" class="txt receiver" type="text" value="" placeholder="请输入收货人姓名"/></li>
+				<li><span class="left">联系电话</span><input class="txt  phone_num" type="text" value="" placeholder="请输入收货人电话"/></li>
+				<li><span class="left">所在地区</span><input class="txt address" id="address" type="text" readonly="readonly" value=""/><span class="right iconfont">&#xe617;</span></li>
+				<li class="detail_address">
+					<span class="left">详细地址</span><input class="detail" rows="" maxlength=50 cols="" placeholder="请输入详细地址" />
+				</li>
+			</ul>
+			<div class="delete"><p>删除该地址</p></div>
+		</section>
+		<script src="../common/rem.js"></script>
+		<script src="../common/common.js"></script>
+		<script type="text/javascript" src="../js/newaddress.js"></script>
+	</body>
+</html>

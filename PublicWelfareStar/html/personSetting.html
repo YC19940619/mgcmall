@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta content="telephone=no" name="format-detection" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>设置</title>
+		<link rel="stylesheet" href="../common/common.css" />
+		<link rel="stylesheet" href="../css/setting.css" />
+		<script type="text/javascript" src="../cordova.js"></script>
+		<script src="../common/jquery-2.2.1.min.js"></script>
+		<script src="../common/rem.js"></script>
+		<script src="../common/common.js"></script>
+		<script src="../common/md5.js"></script>
+		<script type="text/javascript" src="../common/fastclick.js"></script>
+	</head>
+	<body>
+		<header>
+			<span class="left goback"><img src="../img/common/goback.png"></span>
+			<p>设置</p>
+		</header>
+		<section>
+			<div class="wrap">
+				<ul>
+					<li class="phone"><span>修改手机号</span><p></p><span class="iconfont goto">&#xe62e;</span></li>
+					<li><span>关于</span><p></p><span class="iconfont goto">&#xe62e;</span></li>
+				</ul>
+			</div>
+			
+		</section>
+		<script>
+            FastClick.attach(document.body);
+            console.log(localStorage.getItem('phone_num'))
+            if(localStorage.getItem('phone_num')){
+                $('ul .phone span').eq(0).text("修改手机号");
+                $('ul .phone p').text(localStorage.getItem('phone_num'));
+            }else{
+                $('ul .phone span').eq(0).text("绑定手机号");
+                $('ul .phone p').text("");
+            }
+			$('section .wrap ul li').eq(1).click(function(){
+				window.location.href="about.html"
+			})
+			$('section .wrap ul li').eq(0).click(function(){
+				window.location.href="verifyPhone.html"
+			})
+			//退出登录
+			$('.exitBtn').click(function(){
+                $.ajax({
+                    type:'post',
+                    url:personSettinglogout,
+                    data:{
+                        uid:localStorage.getItem('uid'),
+                        sessionid:localStorage.getItem('sessionid'),
+                        event:0,
+                        model:localStorage.getItem("model") || "",
+                        os_version:localStorage.getItem("os_version") || "",
+                        channel:localStorage.getItem("channel") || "",
+                        uuid:localStorage.getItem("uuid") || "",
+                        imei:localStorage.getItem("imei") || "",
+                        serialnum:localStorage.getItem("serialnum") || "",
+                        mac:localStorage.getItem("mac") || "",
+                        version:localStorage.getItem("version") || ""
+                    },
+                    dataType: "json",
+                    crossDomain: true,
+                    success:function(data){
+                        console.log(data);
+                        localStorage.clear();
+                        new Toast({context:$('body'),message:'您已成功退出'}).show();
+                        document.addEventListener("deviceready", function() {
+                            appintance = new app();
+                            appintance.device()
+                        }, true);
+                        window.location.href="../personCenter.html";
+                    },
+                    error:function(){
+                        new Toast({context:$('body'),message:'网络异常'}).show();
+                    }
+                })
+			})
+			// 返回上一级
+			$('header .goback').click(function(){
+				history.go(-1);
+			})
+		</script>
+	</body>
+</html>

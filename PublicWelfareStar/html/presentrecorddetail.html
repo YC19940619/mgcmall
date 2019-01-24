@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>提现详情</title>
+    <link rel="stylesheet" href="../common/common.css" />
+    <script src="../common/jquery-2.2.1.min.js"></script>
+    <script src="../common/common.js"></script>
+    <script type="text/javascript" src="../common/rem.js"></script>
+    <script type="text/javascript" src="../common/fastclick.js"></script>
+    <style>
+        .money{
+            width:100%;
+            background: #fff;
+            height:1rem;
+            line-height: 1rem;
+            border-bottom: 1px solid rgba(0,0,0,0.10);
+            box-sizing: border-box;
+            padding:0 0.3rem;
+        }
+        ul{
+            width:100%;
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            padding:0.2rem 0.3rem 1rem;
+            background: #fff;
+        }
+        ul div{
+            width:100%;
+            height:0.6rem;
+        }
+        .left{
+            float: left;
+            font-size: 0.3rem;
+            color: #999999;
+            letter-spacing: 0;
+        }
+        .right{
+            float: right;
+            font-size: 0.3rem;
+            color: #333333;
+            letter-spacing: 0;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <span class="left goback"><img src="../img/common/goback.png"></span>
+    <p>提现详情</p>
+</header>
+<section>
+    <div class="money">
+        <span class="left">提现金额</span><span class="right"></span>
+    </div>
+    <ul>
+        <div class="fee"><span class="left">手续费</span><span class="right"></span></div>
+        <div class="username"><span class="left">提现用户</span><span class="right"></span></div>
+        <div class="bank_card_id"><span class="left">银行卡号</span><span class="right"></span></div>
+        <div class="bank_name"><span class="left">归属银行</span><span class="right"></span></div>
+        <div class="number"><span class="left">提现单号</span><span class="right"></span></div>
+        <div class="status"><span class="left">提现状态</span><span class="right"></span></div>
+        <div class="type"><span class="left">提现方式</span><span class="right">银行卡</span></div>
+        <div class="time"><span class="left">提现时间</span><span class="right"></span></div>
+    </ul>
+</section>
+<script>
+    FastClick.attach(document.body);
+    // 返回上一级
+    $('header .goback').click(function(){
+        history.go(-1);
+    })
+    var uid = localStorage.getItem("uid");
+    var sessionid = localStorage.getItem("sessionid");
+    var withdraw_serial_num = Request.QueryString("withdraw_serial_num");
+    var senddata = {
+        uid: uid,
+        sessionid: sessionid,
+        withdraw_serial_num:withdraw_serial_num
+    }
+    $.ajax({
+        type: 'GET',
+        url: withdraw_detail,
+        data:senddata,
+        success: function(data){
+            console.log(data)
+            var bank_card_id = data.withdraw_list.bank_card_id;//卡号
+            var bank_name = data.withdraw_list.bank_name;//银行名字
+            var username = data.withdraw_list.username;//提现人
+            var fee = data.withdraw_list.fee;
+            var profit = data.withdraw_list.profit;//金额
+            var status = data.withdraw_list.status;//状态
+            var timestamp =new Date(data.withdraw_list.timestamp);//日期
+            var nian = timestamp.getFullYear();
+            var yue = timestamp.getMonth()+1;
+            var ri = timestamp.getDate();
+            var xiaoshi = timestamp.getHours();
+            var fen = timestamp.getMinutes();
+            if(ri<10){
+                ri="0"+ri;
+            }
+            var time = nian+"-"+yue+"-"+ri+" "+xiaoshi+":"+fen;
+            var withdraw_serial_num = data.withdraw_list.withdraw_serial_num;//单号
+            $(".fee .right").text(fee)
+            $(".money .right").text("+"+profit)
+            $(".username .right").text(username);
+            $(".bank_card_id .right").text(bank_card_id);
+            $(".bank_name .right").text(bank_name);
+            $(".number .right").text(withdraw_serial_num);
+            $(".status .right").text(status);
+            $(".time .right").text(data.withdraw_list.timestamp);
+        },
+        error:function(data){
+            new Toast({context: $('body'), message: "网络加载失败"}).show();
+        }
+    });
+</script>
+</body>
+</html>

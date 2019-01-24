@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <!-- uc强制竖屏 -->
+    <meta name="screen-orientation" content="portrait">
+    <!-- QQ强制竖屏 -->
+    <meta name="x5-orientation" content="portrait">
+    <link rel="stylesheet" type="text/css" href="../common/common.css"/>
+    <link rel="stylesheet" type="text/css" href="../common/mescroll.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/activity.css"/>
+    <script type="text/javascript" src="../cordova.js"></script>
+    <script type="text/javascript" src="../common/md5.js"></script>
+    <script type="text/javascript" src="../common/rem.js"></script>
+    <script type="text/javascript" src="../common/jquery-2.2.1.min.js"></script>
+    <script src="../common/lazyload.js"></script>
+    <!--<script type="text/javascript" src="../common/fastclick.js"></script>-->
+    <script type="text/javascript" src="../common/common.js"></script>
+    <title>发现</title>
+    <script type="text/javascript">
+        document.addEventListener("deviceready", onDeviceReady, false);
+        function onDeviceReady() {
+            document.addEventListener("backbutton", onBackKeyDown, false);
+        }
+        function onBackKeyDown() {
+            if($("#__previewImage-container").css("display")=="block"){
+                $("#__previewImage-container").css({"transform":"translate3d(100%, 0px, 0px)"})
+                setTimeout(function(){
+                    $("#__previewImage-container").css({"display":"none"})
+                },300)
+            }else if($("#articledetail").hasClass("active")){
+                $("#articledetail").removeClass("active");
+            }else{
+                new Toast({context:$('body'),message:('再点击一次退出!')}).show();
+                document.removeEventListener("backbutton", onBackKeyDown, false); // 注销返回键
+                document.addEventListener("backbutton", exitApp, false);//绑定退出事件
+            }
+            // 3秒后重新注册
+            var intervalID = window.setInterval(function() {
+                window.clearInterval(intervalID);
+                document.removeEventListener("backbutton", exitApp, false); // 注销返回键
+                document.addEventListener("backbutton", onBackKeyDown, false); // 返回键
+            }, 3000);
+        }
+        function exitApp(){
+            navigator.app.exitApp();
+        }
+    </script>
+</head>
+<body>
+<header>
+    <span class="iconfont left sidebarbtn">&#xe604;</span>
+    <p>发现</p>
+</header>
+<section>
+    <ul class="nav">
+        <li class="active">定制分享</li>
+       <!--<li>今天戴什么</li>-->
+       <li>品牌资讯</li>
+    </ul>
+    <div class="content">
+        <div id="mescroll0" class="mescroll">
+            <ul id="dataList0" class="data-list">
+
+            </ul>
+        </div>
+        <div id="mescroll1" class="mescroll">
+            <ul id="dataList1" class="data-list">
+            </ul>
+        </div>
+        <div id="mescroll2" class="mescroll">
+            <ul id="dataList2" class="data-list">
+            </ul>
+        </div>
+    </div>
+</section>
+<!--<iframe class="articledetail" id="articledetail" src="html/articledetail.html?aid=41"></iframe>-->
+<!--<footer>-->
+    <!--<ul>-->
+        <!--<dl >-->
+            <!--<dt><img src="img/common/index1.png"/></dt>-->
+            <!--<dd>首页</dd>-->
+        <!--</dl>-->
+        <!--<dl>-->
+            <!--<dt><img src="img/common/shoppingmall1.png"/></dt>-->
+            <!--<dd>商城</dd>-->
+        <!--</dl>-->
+        <!--<dl >-->
+            <!--<dt><img src="img/common/made.gif"/></dt>-->
+            <!--<dd>定制</dd>-->
+        <!--</dl>-->
+        <!--<dl class="active">-->
+            <!--<dt><img src="img/common/activity2.png"/></dt>-->
+            <!--<dd>发现</dd>-->
+        <!--</dl>-->
+        <!--<dl>-->
+            <!--<dt><img src="img/common/personcenter1.png"/></dt>-->
+            <!--<dd>个人中心</dd>-->
+        <!--</dl>-->
+    <!--</ul>-->
+<!--</footer>-->
+<script src="../common/mescroll.min.js"></script>
+<script src="../common/previewImage.min.js"></script>
+<script src="../common/ycimgbig.js"></script>
+<script src="../js/activity.js"></script>
+</body>
+</html>

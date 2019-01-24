@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <!-- uc强制竖屏 -->
+    <meta name="screen-orientation" content="portrait">
+    <!-- QQ强制竖屏 -->
+    <meta name="x5-orientation" content="portrait">
+    <title>教程</title>
+    <link rel="stylesheet" type="text/css" href="../common/common.css" />
+    <script type="text/javascript" src="../common/jquery-2.2.1.min.js"></script>
+    <script type="text/javascript" src="../common/rem.js"></script>
+    <script type="text/javascript" src="../common/common.js"></script>
+    <style>
+        section{
+            background: #fff;
+        }
+        section img{
+            display: none;
+            width:100%;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <span class="left goback"><img src="../img/common/goback.png"></span>
+        <p>定制教程</p>
+    </header>
+    <section style="overflow: scroll;font-size: 0">
+        <img src="../img/index/indexguide11.png">
+        <img src="../img/index/indexguide22.png">
+        <img src="../img/index/indexguide33.png">
+        <img src="../img/index/indexguide44.png">
+    </section>
+
+</body>
+<script>
+    //$(".contentitem #mescroll"+curNavIndex).scrollTop(parseInt(scrollTop));
+    $(".goback").click(function(){
+        history.go(-1)
+    })
+    $("section").click(function(){
+        history.go(-1)
+    })
+    var indexguide = Request.QueryString("indexguide");
+    // $("section img").eq(indexguide).one('load', function() {
+    //     var scrolltop = $("section img").eq(indexguide).offset().top-$("header").height();
+    //     $("section").scrollTop(parseInt(scrolltop));
+    // }).each(function() {
+    //     if(this.complete) $(this).load();
+    // });
+    $("section img").eq(indexguide).css("display","block")
+</script>
+</html>

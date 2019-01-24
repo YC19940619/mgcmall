@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="telephone=no" name="format-detection" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>定制</title>
+    <link rel="stylesheet" type="text/css" href="../common/common.css" />
+    <link rel="stylesheet" type="text/css" href="../css/madelist.css" />
+    <style>
+
+        section div{
+			flex: 1;
+			-webkit-flex: 1;
+            width: 100%;
+            height: 100%;
+            overflow: scroll;
+        }
+        section div.active{
+            display: block;
+        }
+        section img{
+            display: block;
+            width: 100%;
+        }
+        .nav{
+            width: 100%;
+            height: 0.8rem;
+            overflow: hidden;
+            /*border-top: 0.1rem solid #e61c64;*/
+        }
+        .nav li{
+            width: 50%;
+            float: left;
+            height: 100%;
+            line-height: 0.7rem;
+            color: #828282;
+            text-align: center;
+            font-size: 0.28rem;
+        }
+        .nav li.active{
+            color: #fff;
+            position: relative;
+            background: #e61c64;
+        }
+        .category  img{
+        	margin-bottom:0.2rem;
+        }
+        .nav li:nth-child(1).active:after{
+            content: '';
+            display: block;
+            height: 1rem;
+            width: 100%;
+            position: absolute;
+            background: #e61c64;
+            left: 0.25rem;
+            top: -0.15rem;
+            -webkit-transform: rotate(30deg);
+            -ms-transform: rotate(30deg);
+            transform: rotate(30deg);
+            -webkit-transform-origin: right 0.5rem;
+            -ms-transform-origin: right 0.5rem;
+            transform-origin: right 0.5rem;
+        }
+        .nav li:nth-child(2).active:after{
+            content: '';
+            display: block;
+            height: 1rem;
+            width: 100%;
+            position: absolute;
+            background: #e61c64;
+            right: 0.25rem;
+            top: -0.15rem;
+            -webkit-transform: rotate(-30deg);
+            -ms-transform: rotate(-30deg);
+            transform: rotate(-30deg);
+            -webkit-transform-origin: left 0.5rem;
+            -ms-transform-origin: left 0.5rem;
+            transform-origin: left 0.5rem;
+        }
+    </style>
+    <script type="text/javascript" src="../cordova.js"></script>
+	<script type="text/javascript" src="../common/md5.js"></script>
+	<script type="text/javascript" src="../common/jquery-2.2.1.min.js"></script>
+    <script src="../common/rem.js"></script>
+	<script src='../common/fastclick.js'></script>
+    <script src="../common/common.js"></script>
+
+</head>
+<body>
+<script>
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+    function onDeviceReady() {
+        //navigator.splashscreen.hide();
+        document.addEventListener("backbutton", onBackKeyDown, false);
+    }
+
+    function onBackKeyDown() {
+        new Toast({ context: $('body'), message: ('再点击一次退出!') }).show();
+        document.removeEventListener("backbutton", onBackKeyDown, false); // 注销返回键
+        document.addEventListener("backbutton", exitApp, false); //绑定退出事件
+        // 3秒后重新注册
+        var intervalID = window.setInterval(function() {
+            window.clearInterval(intervalID);
+            document.removeEventListener("backbutton", exitApp, false); // 注销返回键
+            document.addEventListener("backbutton", onBackKeyDown, false); // 返回键
+        }, 3000);
+    }
+
+    function exitApp() {
+        navigator.app.exitApp();
+    }
+</script>
+	<header>
+		<span class="iconfont left sidebarbtn">&#xe604;</span>
+		<p>随我</p>
+	</header>
+	<section>
+	    <ul class="nav" style="display: none">
+	        <li class="active">按分类</li>
+	        <li>按系列</li>
+	    </ul>
+	    <div class="category active" style="margin-top:0.35rem;">
+	        <img category_id="10002" data-name="项链" src="../img/customization/neck.png">
+	        <img category_id="10003" data-name="手链" src="../img/customization/brace.png">
+	        <img category_id="10004" data-name="戒指" src="../img/customization/ring.png">
+	        <img category_id="10008" data-name="耳饰" src="../img/customization/ear.png">
+	        <img category_id="10008" spuid="10003" data-name="星牌" src="../img/customization/star.png">
+	    </div>
+	</section>
+<script>
+    FastClick.attach(document.body);
+    $(".nav li").click(function(){
+        $(this).addClass("active").siblings("li").removeClass("active");
+        $("section div").eq($(this).index()).addClass("active").siblings("div").removeClass("active");
+    })
+    $("section .category img").click(function(){
+        localStorage.removeItem('made_parameter');
+        var data_name = $(this).attr("data-name");
+        if(data_name==="星牌"){
+            window.location.href = "../webgl/customizations.html?spuid="+$(this).attr("spuid");
+        }else{
+            window.location.href = "madelist.html?category_id="+$(this).attr("category_id")+"&data-name="+encodeURI($(this).attr("data-name"));
+        }
+    });
+    $("section .series img").click(function(){
+        localStorage.removeItem('made_parameter');
+        var data_name = $(this).attr("data-name");
+        if(data_name==="公益星设计"){
+            window.location.href = "webgl/customizations.html?spuid="+$(this).attr("spuid");
+        }else{
+            window.location.href = "madelist.html?series_id="+$(this).attr("series_id")+"&data-name="+encodeURI($(this).attr("data-name"));
+        }
+    });
+</script>
+</body>
+
+</html>

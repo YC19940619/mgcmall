@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<meta content="telephone=no" name="format-detection" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<!-- uc强制竖屏 -->
+		<meta name="screen-orientation" content="portrait">
+		<!-- QQ强制竖屏 -->
+		<meta name="x5-orientation" content="portrait">
+		<title></title>
+		<link rel="stylesheet" href="../common/common.css" />
+		<link rel="stylesheet" href="../css/firmOrder.css" />
+		<script type="text/javascript" src="../cordova.js"></script>
+		<script src="../common/jquery-2.2.1.min.js"></script>
+		<script type="text/javascript" src="../common/fastclick.js"></script>
+		<script src="../common/md5.js"></script>
+	</head>
+	<body>
+		<header>
+			<span class="left goback"><img src="../img/common/goback.png"></span>
+			<p>确认订单</p>
+		</header>
+		<section>
+			<div class="address">
+				<div class="left"><img src="../img/common/address.png"></div>
+				<div class="center">
+					<p class="receiver"></p>
+					<p class="detail_address"></p>
+				</div>
+			</div>
+			<div class="content">
+
+			</div>
+			<div class="totalPrice">
+				<p class="total">商品合计：<i></i></p>
+			</div>
+			<div class="sendStyle">
+				<p class="send">配送方式<i>快递 免邮</i></p>
+			</div>
+		</section>
+		<div class="submitBtn">
+			<span class="money">应付：￥</span><span class="btn">去付款</span>
+		</div>
+	</body>
+	<script src="../common/rem.js"></script>
+	<script src="../common/common.js"></script>
+	<script src="../js/firmOrder.js"></script>
+</html>
